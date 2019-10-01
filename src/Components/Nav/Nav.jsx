@@ -14,7 +14,12 @@ class Nav extends Component {
     }
 
     componentDidMount() {
-
+            axios.get('/auth/me').then(res => {
+                if (res.data.user) {
+                    let user = {user: {user_id: res.data.user.user_id, username: res.data.user.username}, loggedIn: res.data.loggedIn}
+                    this.props.updateUser(user)
+                }
+            })
     }
 
     logout = async () => {

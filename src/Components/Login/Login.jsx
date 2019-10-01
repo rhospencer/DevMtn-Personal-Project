@@ -21,7 +21,6 @@ class Login extends Component {
     login = async () => {
         const {username, password} = this.state
         const res = await axios.post('/auth/login', {username, password})
-        console.log(res)
         if (res.data.user) {
             let user = {user: {user_id: res.data.user.user_id, username: res.data.user.username}, loggedIn: res.data.loggedIn }
             this.props.updateUser(user)

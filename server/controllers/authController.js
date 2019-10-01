@@ -17,7 +17,8 @@ module.exports = {
         })
 
         req.session.user = {username, userId: userId[0].user_id}
-        res.status(201).send({message: 'Registered and Logged In!', user: req.session.user, loggedIn: true})
+        req.session.loggedIn = true
+        res.status(201).send({message: 'Registered and Logged In!', user: req.session.user, loggedIn: req.session.loggedIn})
     },
 
     async login(req, res) {
@@ -32,11 +33,23 @@ module.exports = {
 
         if (!result) return res.status(200).send({message: 'Incorrect Password'})
         req.session.user = {username, user_id: user[0].user_id}
-        res.status(200).send({message: 'Logged In!', user: req.session.user, loggedIn: true})
+        req.session.loggedIn = true
+        res.status(200).send({message: 'Logged In!', user: req.session.user, loggedIn: req.session.loggedIn})
     },
 
     async logout(req, res) {
         req.session.destroy()
         res.status(200).send({message: 'Logged Out!', loggedIn: false})
+    },
+
+    async getUserInfo(req, res) {
+        // const db = req.app.get('db')
+        // console.log(req.session)
+        // const {user_id} = req.session.user
+        // console.log(user_id)
+
+        // const user = await db.get_user_info(user_id)
+        // console.log(user)
+        return res.status(200).send({user: req.session.user, loggedIn: req.session.loggedIn})
     }
 }
