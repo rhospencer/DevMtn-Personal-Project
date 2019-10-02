@@ -4,9 +4,6 @@ import axios from 'axios'
 import {updateUser} from '../../ducks/reducer'
 import {connect} from 'react-redux'
 import './home.scss' 
-import findRoutes from '../../assets/findRoutes.jpg'
-import myRoutes from '../../assets/myRoutes.jpg'
-import myPlans from '../../assets/myPlans.jpg'
 
 class Home extends Component {
     constructor() {
@@ -128,18 +125,15 @@ class Home extends Component {
                 </div>
                 <div className="info">
                     <div className="info-box">
-                        <div className="img-box">
-                            <img src={findRoutes} alt='Find Routes Image'/>
+                        <div className="img-box-find-routes">
                         </div>
                     </div>
                     <div className="info-box">
-                        <div className="img-box">
-                            <img src={myRoutes} alt='My Routes Image'/>
+                        <div className="img-box-my-routes">
                         </div>
                     </div>
                     <div className="info-box">
-                        <div className="img-box">
-                            <img src={myPlans} alt='My Plans Image'/>
+                        <div className="img-box-my-plans">
                         </div>
                     </div>
                 </div>
