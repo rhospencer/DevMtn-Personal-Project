@@ -31,7 +31,6 @@ class Login extends Component {
     render() {
         return(
             <div className="login">
-                Login
                 <input onChange={e => this.handleChange(e, 'username')} placeholder="Username" type="text"/>
                 <input onChange={e => this.handleChange(e, 'password')} placeholder="Password" type="password"/>
                 <button onClick={this.login}>Login</button>

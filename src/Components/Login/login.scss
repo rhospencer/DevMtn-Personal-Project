@@ -1,0 +1,10 @@
+@import "../../variables.scss";
+
+.login {
+    background: $secondary-background;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 5vh;
+    
+}

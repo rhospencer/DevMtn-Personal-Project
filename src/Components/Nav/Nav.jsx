@@ -32,7 +32,6 @@ class Nav extends Component {
     render() {
         return(
             <div className="nav">
-                Nav
                 <Link to={'/'}>Home</Link>
                 <Link to={'/find_routes'}>Find Routes</Link>
                 <Link to={'/my_routes'}>My Routes</Link>

@@ -1,0 +1,17 @@
+$primary-color: #66FCF1;
+$secondary-color: #45A29E;
+$primary-background: #0B0C10;
+$secondary-background: #1F2833;
+$tertiary-background: #C5C6C7;
+$nav-width: 10vw;
+$page-width: 90vw;
+
+
+
+
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}

@@ -1,0 +1,12 @@
+@import "../../variables.scss";
+
+.nav {
+    background: $secondary-background;
+    min-height: 100vh;
+    width: $nav-width;
+    @include flex-column-center;
+    a {
+        color: $primary-color;
+        text-decoration: none;
+    }
+}

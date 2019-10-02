@@ -1,0 +1,16 @@
+@import "./variables.scss";
+@import "./Components/Nav/nav.scss";
+@import "./Components//Login/login.scss";
+@import "./Components//Home/home.scss";
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.App {
+  display: flex;
+}
+
