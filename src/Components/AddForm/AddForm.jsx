@@ -12,7 +12,8 @@ export default class AddForm extends Component {
             state: '',
             starting_address: '',
             distance: null,
-            title: ''
+            title: '',
+            description: ''
         }
     }
 
@@ -38,6 +39,7 @@ export default class AddForm extends Component {
                 <input onChange={e => this.handleChange(e, 'starting_address')} placeholder="Starting Address" value={this.state.starting_address} type="text"/>
                 <input onChange={e => this.handleChange(e, 'distance')} placeholder="Distance" value={this.state.distance} type="number"/>
                 <input onChange={e => this.handleChange(e, 'title')} placeholder="title" value={this.state.title} type="text"/>
+                <input onChange={e => this.handleChange(e, 'description')} placeholder={this.state.description} value={this.state.description} type="text"/>
                 <button onClick={() => this.addRoute()}>Submit</button>
             </div>
         )

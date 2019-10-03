@@ -63,9 +63,9 @@ module.exports = {
     async addNewRoute(req, res) {
         const db = req.app.get('db')
         const {user_id} = req.session.user
-        const {route_img, zip, city, state, starting_address, distance, title} = req.body
+        const {route_img, zip, city, state, starting_address, distance, title, description} = req.body
 
-        const route_id = await db.add_to_routes([user_id, route_img, zip, city, state, starting_address, distance, title])
+        const route_id = await db.add_to_routes([user_id, route_img, zip, city, state, starting_address, distance, title, description])
         const route = await db.add_to_user_routes([route_id[0].route_id, user_id])
 
         res.status(200).send({message: 'New Route Added!'})
