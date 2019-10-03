@@ -23,6 +23,8 @@ app.get('/auth/me', authCtrl.getUserInfo)
 // ROUTE ENDPOINTS
 app.get('/api/routes', routeCtrl.getAllRoutes)
 app.get('/api/saved_routes', routeCtrl.getSavedRoutes)
+app.get('/api/route/:route_id', routeCtrl.getSingleRoute)
+app.post('/api/new_route', routeCtrl.addNewRoute)
 
 // PLAN ENDPOINTS
 

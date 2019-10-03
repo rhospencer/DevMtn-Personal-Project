@@ -147,4 +147,4 @@ function mapStateToProps(reduxState) {
     return {user, loggedIn}
 }
 
-export default connect (mapStateToProps, {updateUser})(Home)
+export default connect(mapStateToProps, {updateUser})(Home)

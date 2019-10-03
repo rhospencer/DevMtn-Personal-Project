@@ -1,0 +1,85 @@
+@import "../../variables.scss";
+
+.route-page {
+    width: $page-width;
+    height: 100vh;
+    background: $tertiary-background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.route-holder {
+    width: 900px;
+    height: 500px;
+    background: $secondary-background;
+    color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50px;
+    
+} 
+
+.profile-holder {
+    width: 900px;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 60px;
+    img {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+    }
+    h3 {
+        padding-left: 20px;
+    }
+}
+
+.route-info-holder {
+    width: 800px;
+    height: 220px;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+}
+
+.info-holder {
+    width: 450px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        text-decoration: underline;
+        font-size: 2.0rem;
+        color: $primary-color;
+    }
+}
+
+.route-info {
+    height: 220px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.route-img-holder {
+    width: 450px;
+    height: 340px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    img {
+        height: 220px;
+        width: auto;
+
+    }
+}

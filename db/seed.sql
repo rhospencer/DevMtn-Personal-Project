@@ -31,7 +31,8 @@ CREATE TABLE routes (
     city VARCHAR(50),
     state VARCHAR(2),
     starting_address TEXT,
-    distance DECIMAL(4, 2)
+    distance DECIMAL(4, 2),
+    title VARCHAR(100)
 );
 
 INSERT INTO routes (creator_id, route_img, zip, city, state, starting_address, distance)

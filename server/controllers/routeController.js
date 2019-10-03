@@ -51,5 +51,26 @@ module.exports = {
                 return res.status(200).send(routes)
             }
         }
+    },
+
+    async getSingleRoute(req, res) {
+        db = req.app.get('db')
+        const {route_id} = req.params
+        const route = await db.get_single_route(route_id)
+        res.status(200).send(route[0])
+    },
+
+    async addNewRoute(req, res) {
+        db = req.app.get('db')
+        const {user_id} = req.session.user
+        const {route_img, zip, city, state, starting_address, distance, title} = req.body
+
+        const route_id = await db.add_to_routes([user_id, route_img, zip, city, state, starting_address, distance, title])
+        db.add_to_user_routes([route_id, user_id]).catch(err => {
+            res.sendStatus(503)
+        })
+        res.status(200).send({message: 'New Route Added!'})
+
+
     }
 }

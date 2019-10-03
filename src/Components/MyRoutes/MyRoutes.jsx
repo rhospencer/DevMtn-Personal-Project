@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 export default class MyRoutes extends Component {
     constructor() {
@@ -34,11 +35,13 @@ export default class MyRoutes extends Component {
 
     render() {
         const route = this.state.routes.map(el => {
-            return <div className="route" key={el.route_id}>
-                <h1>{el.title}</h1>
-                <h4>{el.distance}</h4>
-                <img src={el.route_img} alt="Route Map"/>
-            </div>
+            return <Link to={`/route/${el.route_id}`} key={el.route_id}>
+                <div className="route">
+                    <h1>{el.title}</h1>
+                    <h4>{el.distance}</h4>
+                    <img src={el.route_img} alt="Route Map"/>
+                </div>
+            </Link>
         })
         return(
             <div className="my-routes">
@@ -47,7 +50,7 @@ export default class MyRoutes extends Component {
                 <input value={this.state.distance} onChange={e => this.handleChange(e, 'distance')} placeholder="Distance" type="range" min="0" max="50"/>
                 <input onChange={() => this.handleCheckBoxChange()} checked={this.state.userRoutes} type="checkbox"/>
                 <button onClick={() => this.getPosts()}>Get Routes!</button>
-                <div className="route-holder">
+                <div className="routes-holder">
                     {route}
                 </div>
             </div>
