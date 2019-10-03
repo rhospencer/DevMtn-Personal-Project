@@ -17,6 +17,13 @@ class Route extends Component {
         })
     }
 
+    deleteRoute() {
+        axios.delete(`/api/delete/${+this.props.match.params.route_id}`).then(res => {
+            this.props.history.push('/my_routes')
+            alert(res.data.message)
+        })
+    }
+
     render() {
         return (
             <div className="route-page">
@@ -54,7 +61,7 @@ class Route extends Component {
                             <button>Delete</button>
                         </div>
                         : 
-                        null
+                        <button onClick={() => this.deleteRoute()}>Delete</button>
                 }
                 </div>
             </div>

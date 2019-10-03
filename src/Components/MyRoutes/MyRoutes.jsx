@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 
+
 export default class MyRoutes extends Component {
     constructor() {
         super()
@@ -50,7 +51,7 @@ export default class MyRoutes extends Component {
                 <input value={this.state.distance} onChange={e => this.handleChange(e, 'distance')} placeholder="Distance" type="range" min="0" max="50"/>
                 <input onChange={() => this.handleCheckBoxChange()} checked={this.state.userRoutes} type="checkbox"/>
                 <button onClick={() => this.getPosts()}>Get Routes!</button>
-                <div className="routes-holder">
+                <div className="my-routes-holder">
                     {route}
                 </div>
             </div>

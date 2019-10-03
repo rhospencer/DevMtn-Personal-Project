@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
-export default class FindRoutes extends Component {
+class FindRoutes extends Component {
     constructor() {
         super()
 
@@ -26,10 +28,17 @@ export default class FindRoutes extends Component {
         })
     }
 
+    saveRoute(route_id) {
+        axios.post(`/api/save/${route_id}`).then(res => {
+            alert(res.data.message)
+        })
+    }
+
     render() {
         const route = this.state.routes.map(el => {
             return <div className="route" key={el.route_id}>
                 <h1>{el.title}</h1>
+                <button onClick={() => this.saveRoute(el.route_id)}>+</button>
                 <h4>{el.distance}</h4>
                 <img src={el.route_img} alt="Route Map"/>
             </div>
@@ -40,11 +49,19 @@ export default class FindRoutes extends Component {
                 <input value={this.state.distance} onChange={e => this.handleChange(e, 'distance')} placeholder="Distance" type="number"/>
                 <input value={this.state.distance} onChange={e => this.handleChange(e, 'distance')} placeholder="Distance" type="range" min="0" max="50"/>
                 <button onClick={() => this.getPosts()}>Get Routes!</button>
-                {console.log(this.state.routes)}
-                <div className="route-holder">
+                <Link to={'/add_form'}><button>Add New Route</button></Link>
+                <div className="find-routes-holder">
+                    
                     {route}
                 </div>
             </div>
         )
     }
 }
+
+function mapStateToProps(reduxState) {
+    const {user, loggedIn} = reduxState
+    return {user, loggedIn}
+}
+
+export default connect(mapStateToProps)(FindRoutes)

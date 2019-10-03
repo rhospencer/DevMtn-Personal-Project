@@ -54,23 +54,38 @@ module.exports = {
     },
 
     async getSingleRoute(req, res) {
-        db = req.app.get('db')
+        const db = req.app.get('db')
         const {route_id} = req.params
         const route = await db.get_single_route(route_id)
         res.status(200).send(route[0])
     },
 
     async addNewRoute(req, res) {
-        db = req.app.get('db')
+        const db = req.app.get('db')
         const {user_id} = req.session.user
         const {route_img, zip, city, state, starting_address, distance, title} = req.body
 
         const route_id = await db.add_to_routes([user_id, route_img, zip, city, state, starting_address, distance, title])
-        db.add_to_user_routes([route_id, user_id]).catch(err => {
-            res.sendStatus(503)
-        })
+        const route = await db.add_to_user_routes([route_id[0].route_id, user_id])
+
         res.status(200).send({message: 'New Route Added!'})
+    },
 
+    async saveRoute(req, res) {
+        const db = req.app.get('db')
+        const {user_id} = req.session.user
+        const {route_id} = req.params
 
+        const saved = await db.save_route([route_id, user_id])
+        res.status(200).send({message: "Route Saved"})
+    },
+
+    async deleteRoute(req, res) {
+        const db = req.app.get('db')
+        const {user_id} = req.session.user
+        const {route_id} = req.params
+
+        const deleted_saved_route = await db.delete_saved_route([route_id, user_id])
+        res.status(200).send({message: "Route Deleted From User Routes"})
     }
 }

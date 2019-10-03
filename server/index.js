@@ -25,6 +25,8 @@ app.get('/api/routes', routeCtrl.getAllRoutes)
 app.get('/api/saved_routes', routeCtrl.getSavedRoutes)
 app.get('/api/route/:route_id', routeCtrl.getSingleRoute)
 app.post('/api/new_route', routeCtrl.addNewRoute)
+app.post('/api/save/:route_id', routeCtrl.saveRoute)
+app.delete('/api/delete/:route_id', routeCtrl.deleteRoute)
 
 // PLAN ENDPOINTS
 

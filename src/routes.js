@@ -4,6 +4,7 @@ import FindRoutes from './Components/FindRoutes/FindRoutes'
 import MyRoutes from './Components/MyRoutes/MyRoutes'
 import MyPlans from './Components/MyPlans/MyPlans'
 import Route from './Components/Route/Route'
+import AddForm from './Components/AddForm/AddForm'
 import {Switch, Route as Routing} from 'react-router-dom'
 
 export default (
@@ -13,5 +14,6 @@ export default (
         <Routing path='/my_routes' component={MyRoutes}/>
         <Routing path='/my_plans' component={MyPlans}/>
         <Routing path='/route/:route_id' component={Route}/>
+        <Routing path='/add_form' component={AddForm}/>
     </Switch>
 )
