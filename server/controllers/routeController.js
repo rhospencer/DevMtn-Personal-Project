@@ -87,5 +87,19 @@ module.exports = {
 
         const deleted_saved_route = await db.delete_saved_route([route_id, user_id])
         res.status(200).send({message: "Route Deleted From User Routes"})
+    },
+
+    async editRoute(req, res) {
+        const db = req.app.get('db')
+        const {user_id} = req.session.user
+        const {route_id} = req.params
+        const {route_img, zip, city, state, starting_address, distance, title, description} = req.body
+        const creator_id = await db.get_route_creator_id(route_id)
+        if (creator_id[0].creator_id !== user_id) {
+            return res.status(200).send({message: "Cannot edit a route you did not create."})
+        } else {
+            const edited_route = await db.edit_route([route_id, route_img, zip, city, state, starting_address, distance, title, description])
+            return res.status(200).send({message: "Route Edited!"})
+        }
     }
 }

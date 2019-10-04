@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 
-export default class MyPlans extends Component {
+class MyPlans extends Component {
     constructor() {
         super()
 
@@ -8,6 +10,14 @@ export default class MyPlans extends Component {
 
         }
     }
+
+    componentDidMount() {
+        if (!this.props.loggedIn) {
+            this.props.history.push('/')
+        }
+    }
+
+
     render() {
         return(
             <div className="my-plans">
@@ -16,3 +26,9 @@ export default class MyPlans extends Component {
         )
     }
 }
+
+function mapStateToProps(reduxState) {
+    const {user, loggedIn} = reduxState
+    return {user, loggedIn}
+}
+export default connect(mapStateToProps)(withRouter(MyPlans))

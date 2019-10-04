@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 
 
-export default class MyRoutes extends Component {
+class MyRoutes extends Component {
     constructor() {
         super()
 
@@ -11,12 +13,16 @@ export default class MyRoutes extends Component {
             city: '',
             distance: '',
             routes: [],
-            userRoutes: false
+            userRoutes: false,
         }
     }
 
     componentDidMount() {
-        this.getPosts()
+        if (!this.props.loggedIn) {
+            this.props.history.push('/')
+        } else {
+            this.getPosts()
+        }
     }
 
     handleChange(e, key) {
@@ -58,3 +64,9 @@ export default class MyRoutes extends Component {
         )
     }
 }
+
+function mapStateToProps(reduxState) {
+    const {user, loggedIn} = reduxState
+    return {user, loggedIn}
+}
+export default connect(mapStateToProps)(withRouter(MyRoutes))

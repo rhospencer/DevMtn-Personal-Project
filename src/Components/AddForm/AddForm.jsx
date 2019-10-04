@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 
-export default class AddForm extends Component {
+class AddForm extends Component {
     constructor() {
         super()
 
@@ -14,6 +16,12 @@ export default class AddForm extends Component {
             distance: null,
             title: '',
             description: ''
+        }
+    }
+
+    componentDidMount() {
+        if (!this.props.loggedIn) {
+            this.props.history.push('/')
         }
     }
 
@@ -50,3 +58,9 @@ export default class AddForm extends Component {
         )
     }
 }
+
+function mapStateToProps(reduxState) {
+    const {user, loggedIn} = reduxState
+    return {user, loggedIn}
+}
+export default connect(mapStateToProps)(withRouter(AddForm))

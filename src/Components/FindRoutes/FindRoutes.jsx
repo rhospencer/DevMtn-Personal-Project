@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import './find-routes.scss'
 
 class FindRoutes extends Component {
     constructor() {
@@ -36,22 +37,41 @@ class FindRoutes extends Component {
 
     render() {
         const route = this.state.routes.map(el => {
-            return <Link to={`/route/${el.route_id}`} key={el.route_id}><div className="route">
-                <h1>{el.title}</h1>
-                <button onClick={() => this.saveRoute(el.route_id)}>+</button>
-                <h4>{el.distance}</h4>
-                <img src={el.route_img} alt="Route Map"/>
-            </div></Link>
+            return <div className="route" key={el.route_id}>
+                <div className="add-button-holder">
+                    <button onClick={() => this.saveRoute(el.route_id)}>+</button>
+                </div>
+                <div className="display-route">
+                    <div className="route-title">
+                        <h1>{el.title}</h1>
+                        <br/>
+                        <h2>{el.distance} Miles</h2>
+                    </div>
+                    <div className="route-map">
+                        <img src={el.route_img} alt="Route Map"/>
+                    </div>
+                </div>
+            </div>
         })
         return(
-            <div className="find-routes">
-                <input onChange={e => this.handleChange(e, 'city')} placeholder="City" type="text"/>
-                <input value={this.state.distance} onChange={e => this.handleChange(e, 'distance')} placeholder="Distance" type="number"/>
-                <input value={this.state.distance} onChange={e => this.handleChange(e, 'distance')} placeholder="Distance" type="range" min="0" max="50"/>
-                <button onClick={() => this.getPosts()}>Get Routes!</button>
-                <Link to={'/add_form'}><button>Add New Route</button></Link>
+            <div className="find-routes-page">
+                <div className="page-title">
+                    <h1>Find Routes</h1>
+                </div>
+                <div className="add-new-route">
+                    <Link to={'/add_form'}><button>Add New Route</button></Link>
+                </div>
+                <div className="search-holder">
+                    <div className="search">
+                        <input onChange={e => this.handleChange(e, 'city')} placeholder="City" type="text"/>
+                        <div className="distance-holder">
+                            <input value={this.state.distance} onChange={e => this.handleChange(e, 'distance')} placeholder="Distance" type="number"/>
+                            <input value={this.state.distance} onChange={e => this.handleChange(e, 'distance')} placeholder="Distance" type="range" min="0" max="50"/>
+                        </div>
+                        <button onClick={() => this.getPosts()}>Get Routes!</button>
+                    </div>
+                </div>
                 <div className="find-routes-holder">
-                    
                     {route}
                 </div>
             </div>

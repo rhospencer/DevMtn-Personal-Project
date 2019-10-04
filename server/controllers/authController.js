@@ -52,4 +52,6 @@ module.exports = {
         // console.log(user)
         return res.status(200).send({user: req.session.user, loggedIn: req.session.loggedIn})
     }
+
+
 }
