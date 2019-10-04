@@ -32,7 +32,7 @@ class Home extends Component {
                 this.cancelInputs()
                 return alert(res.data.message)
             }
-            const user = {user: {user_id: res.data.user.user_id, username: res.data.user.username}, loggedIn: res.data.loggedIn}
+            const user = {user: {user_id: res.data.user.user_id, username: res.data.user.username, profile_pic: res.data.user.profile_pic}, loggedIn: res.data.loggedIn}
             this.props.updateUser(user)
             this.cancelInputs()
         } else {
@@ -43,7 +43,7 @@ class Home extends Component {
     }
 
     cancelInputs = () => {
-        this.setState({username: '', password1: '', password2: '', city: '', state: '', zip: null, profile_pic: ''})
+        this.setState({username: '', password1: '', password2: '', city: '', state: '', zip: '', profile_pic: ''})
     }
 
     cancelPasswords = () => {
@@ -117,9 +117,10 @@ class Home extends Component {
                                 <option value="WI">Wisconsin</option>
                                 <option value="WY">Wyoming</option>
                             </select>	
-                            <input onChange={e => this.handleChange(e, 'zip')} placeholder='Zip Code' type="number"/>
-                            <input onChange={e => this.handleChange(e, 'profile_pic')} placeholder='Profile Picture' type="text"/>
+                            <input onChange={e => this.handleChange(e, 'zip')} placeholder='Zip Code' value={this.state.zip} type="number"/>
+                            <input onChange={e => this.handleChange(e, 'profile_pic')} placeholder='Profile Picture' value={this.state.profile_pic} type="text"/>
                             <button onClick={this.register}>Register</button>
+                            <button onClick={this.cancelInputs}>Clear</button>
                         </div> : 
                     null}
                 </div>

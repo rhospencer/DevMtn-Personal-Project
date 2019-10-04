@@ -28,6 +28,10 @@ export default class AddForm extends Component {
         })
     }
 
+    clearInputs = () => {
+        this.setState({route_img: '', zip: '', city: '', state: '', starting_address: '', distance: '', title: '', description: ''})
+    }
+
     render() {
         return(
             <div className="add-form">
@@ -38,9 +42,10 @@ export default class AddForm extends Component {
                 <input onChange={e => this.handleChange(e, 'state')} placeholder="State" value={this.state.state} type="text"/>
                 <input onChange={e => this.handleChange(e, 'starting_address')} placeholder="Starting Address" value={this.state.starting_address} type="text"/>
                 <input onChange={e => this.handleChange(e, 'distance')} placeholder="Distance" value={this.state.distance} type="number"/>
-                <input onChange={e => this.handleChange(e, 'title')} placeholder="title" value={this.state.title} type="text"/>
-                <input onChange={e => this.handleChange(e, 'description')} placeholder={this.state.description} value={this.state.description} type="text"/>
+                <input onChange={e => this.handleChange(e, 'title')} placeholder="Title" value={this.state.title} type="text"/>
+                <input onChange={e => this.handleChange(e, 'description')} placeholder="Description" value={this.state.description} type="text"/>
                 <button onClick={() => this.addRoute()}>Submit</button>
+                <button onClick={this.clearInputs}>Clear</button>
             </div>
         )
     }

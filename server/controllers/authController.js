@@ -16,7 +16,7 @@ module.exports = {
             return res.sendStatus(503)
         })
 
-        req.session.user = {username, userId: userId[0].user_id}
+        req.session.user = {username, userId: userId[0].user_id, profile_pic}
         req.session.loggedIn = true
         res.status(201).send({message: 'Registered and Logged In!', user: req.session.user, loggedIn: req.session.loggedIn})
     },
@@ -32,7 +32,7 @@ module.exports = {
         const result = bcrypt.compareSync(password, user[0].hash)
 
         if (!result) return res.status(200).send({message: 'Incorrect Password'})
-        req.session.user = {username, user_id: user[0].user_id}
+        req.session.user = {username, user_id: user[0].user_id, profile_pic: user[0].profile_pic}
         req.session.loggedIn = true
         res.status(200).send({message: 'Logged In!', user: req.session.user, loggedIn: req.session.loggedIn})
     },

@@ -5,8 +5,13 @@
     min-height: 100vh;
     width: $nav-width;
     @include flex-column-center;
+    padding-top: 20px;
     a {
         color: $primary-color;
         text-decoration: none;
+    }
+    img {
+        border-radius: 50%;
+        width: 110px;
     }
 }

@@ -36,12 +36,12 @@ class FindRoutes extends Component {
 
     render() {
         const route = this.state.routes.map(el => {
-            return <div className="route" key={el.route_id}>
+            return <Link to={`/route/${el.route_id}`} key={el.route_id}><div className="route">
                 <h1>{el.title}</h1>
                 <button onClick={() => this.saveRoute(el.route_id)}>+</button>
                 <h4>{el.distance}</h4>
                 <img src={el.route_img} alt="Route Map"/>
-            </div>
+            </div></Link>
         })
         return(
             <div className="find-routes">
