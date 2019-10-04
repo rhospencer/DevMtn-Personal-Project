@@ -4,6 +4,7 @@
 @import "./Components//Home/home.scss";
 @import "./Components/Route/route.scss";
 @import "./Components/FindRoutes/find-routes.scss";
+@import "./Components/MyRoutes/my-routes.scss";
 
 * {
   margin: 0;
@@ -14,5 +15,9 @@
 
 .App {
   display: flex;
+}
+
+.main-page {
+  margin-left: $nav-width;
 }
 

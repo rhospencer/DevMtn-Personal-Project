@@ -1,0 +1,64 @@
+@import '../../variables.scss';
+
+.my-routes-page {
+    width: $page-width;
+    min-height: 100vh;
+    background: $tertiary-background;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-routes-holder {
+    width: 960px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.my-route {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 280px;
+    width: 280px;
+    background: $secondary-background;
+    margin: 0 20px;
+    margin: 20px;
+    border-radius: 20px;
+    img {
+        width: 220px;
+        height: auto;
+    }
+}
+
+.my-route-title {
+    height: 40%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    h1 {
+        font-size: 1.8rem;
+        color: $primary-color;
+        text-decoration: underline;
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+    h4 {
+        font-size: 1.2rem;
+        color: $primary-color;
+        text-decoration: none;
+    }
+}
+
+.my-route-image {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -2,7 +2,8 @@
 
 .nav {
     background: $secondary-background;
-    min-height: 100vh;
+    height: 100vh;
+    position: fixed;
     width: $nav-width;
     @include flex-column-center;
     padding-top: 20px;
@@ -12,7 +13,33 @@
     }
     img {
         border-radius: 50%;
-        width: 80px;
+        width: 90px;
         height: auto;
+    }
+}
+
+.link-icons {
+    overflow: hidden;
+}
+
+.nav-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $primary-color;
+    padding-top: 20px;
+    &:hover {
+        color: $secondary-color;
+    }
+}
+
+.logout-element {
+    display: flex;
+    justify-content: center;
+    padding-top: 160px;
+    cursor: pointer;
+    &:hover {
+        color: $secondary-color;
     }
 }

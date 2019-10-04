@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import {updateUser} from '../../ducks/reducer'
 import {connect} from 'react-redux'
+import Swal from 'sweetalert2'
 
 
 class Login extends Component {
@@ -25,7 +26,10 @@ class Login extends Component {
             let user = {user: {user_id: res.data.user.user_id, username: res.data.user.username, profile_pic: res.data.user.profile_pic}, loggedIn: res.data.loggedIn }
             this.props.updateUser(user)
         }
-        alert(res.data.message)
+        Swal.fire({
+            text: res.data.message
+        })
+        // alert(res.data.message)
     }
 
     render() {

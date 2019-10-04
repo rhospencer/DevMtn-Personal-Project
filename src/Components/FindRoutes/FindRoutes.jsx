@@ -3,6 +3,7 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import './find-routes.scss'
+import ExpandRoute from '../ExpandRoute/ExpandRoute'
 
 class FindRoutes extends Component {
     constructor() {
@@ -11,7 +12,7 @@ class FindRoutes extends Component {
         this.state = {
             city: '',
             distance: '',
-            routes: []
+            routes: [],
         }
     }
 
@@ -37,21 +38,7 @@ class FindRoutes extends Component {
 
     render() {
         const route = this.state.routes.map(el => {
-            return <div className="route" key={el.route_id}>
-                <div className="add-button-holder">
-                    <button onClick={() => this.saveRoute(el.route_id)}>+</button>
-                </div>
-                <div className="display-route">
-                    <div className="route-title">
-                        <h1>{el.title}</h1>
-                        <br/>
-                        <h2>{el.distance} Miles</h2>
-                    </div>
-                    <div className="route-map">
-                        <img src={el.route_img} alt="Route Map"/>
-                    </div>
-                </div>
-            </div>
+            return <ExpandRoute key={el.route_id} data={el}/>
         })
         return(
             <div className="find-routes-page">

@@ -42,18 +42,45 @@ class Nav extends Component {
                 :
                 null
             }
-                
-                <Link to={'/'}>Home</Link>
-                <Link to={'/find_routes'}>Find Routes</Link>
-                {this.props.loggedIn ?
-                <div className="conditional-nav">
-                    <Link to={'/my_routes'}>My Routes</Link>
-                    <Link to={'/my_plans'}>My Plans</Link>
-                    <button onClick={this.logout}>Logout</button>
+                <div className="link-icons">
+                    <Link to={'/'}>
+                        <div className="nav-element">
+                            <i class="fas fa-home fa-3x"></i>
+                            Home
+                        </div>
+                    </Link>
+                    <Link to={'/find_routes'}>
+                        <div className="nav-element">
+                            <i class="fas fa-route fa-3x"></i>
+                            Find Routes
+                        </div>
+
+                    </Link>
+                    {this.props.loggedIn ?
+                    <div className="conditional-nav">
+                        <Link to={'/my_routes'}>
+                            <div className="nav-element">
+                                <i class="fas fa-map-signs fa-3x"></i>
+                                My Routes
+                            </div>
+                        </Link>
+                        <Link to={'/my_plans'}>
+                            <div className="nav-element">
+                                <i class="fas fa-calendar-day fa-3x"></i>
+                                My Plans
+                            </div>
+                        </Link>
+                        <div className="logout-element">
+                            <div className="nav-element" onClick={this.logout}>
+                                <i class="fas fa-sign-out-alt fa-3x fa-flip-horizontal"></i>
+                                Logout
+                            </div>
+                        </div>
+                    </div>
+                    :
+                    null
+                }
                 </div>
-                :
-                null
-            }
             </div>
         )
     }

@@ -54,17 +54,26 @@ class Route extends Component {
         this.setState({[key]: e.target.value})
     }
 
+    goBack() {
+        this.props.history.push('/my_routes')
+    }
+
     render() {
         return (
             <div className="route-page">
                 {!this.state.edit ? 
                     <div className="route-holder">
                         <div className="profile-holder">
-                            {this.state.route.profile_pic ? 
-                            <img src={this.state.route.profile_pic} alt="User Profile Picture"/>
-                            :
-                            <img src='https://i0.wp.com/acaweb.org/wp-content/uploads/2018/12/profile-placeholder.png?fit=300%2C300&ssl=1' alt="User Profile Picture"/>}
-                            <h3>Created By {this.state.route.username}</h3>
+                            <div className="profile-info-holder">
+                                {this.state.route.profile_pic ? 
+                                <img src={this.state.route.profile_pic} alt="User Profile Picture"/>
+                                :
+                                <img src='https://i0.wp.com/acaweb.org/wp-content/uploads/2018/12/profile-placeholder.png?fit=300%2C300&ssl=1' alt="User Profile Picture"/>}
+                                <h3>Created By {this.state.route.username}</h3>
+                            </div>
+                            <div className="cancel-button-holder">
+                                <i class="fas fa-window-close fa-3x" onClick={() => this.goBack()}></i>
+                            </div>
                         </div>
                         <div className="route-info-holder">
                             <div className="info-holder">
@@ -90,18 +99,21 @@ class Route extends Component {
                         </div>
                         {this.props.user && this.props.user.user_id === this.state.route.creator_id ? 
                             <div className="edit-route-holder">
+                                <br/>
+                                <br/>
                                 <button onClick={() => this.handleEditChange()}>Edit</button>
                                 <button onClick={() => this.deleteRoute()}>Delete</button>
                             </div>
                             : 
-                            <button onClick={() => this.deleteRoute()}>Delete</button>
+                            <div className="edit-route-holder">
+                                <br/>
+                                <br/>
+                                <button onClick={() => this.deleteRoute()}>Delete</button>
+                            </div>
                     }
                     </div>
-
                     :
-
                     <div className="route-holder">
-
                         <input onChange={e => this.handleInputChange(e, "route_img")} placeholder="Route Image" value={this.state.route_img} type="text"/>
                         <input onChange={e => this.handleInputChange(e, "city")} placeholder="City" value={this.state.city} type="text"/>
                         <input onChange={e => this.handleInputChange(e, "state")} placeholder="State" value={this.state.state} type="text"/>
@@ -113,13 +125,6 @@ class Route extends Component {
                         <button onClick={() => this.handleEditChange()}>Return</button>
                         <button onClick={() => this.editRoute()}>Submit Change</button>
                     </div>
-                
-            
-            
-            
-            
-            
-            
             }
             </div>
         )
