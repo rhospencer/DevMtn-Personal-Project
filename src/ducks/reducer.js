@@ -9,7 +9,6 @@ const UPDATE_USER = 'UPDATE_USER'
 
 // ACTION BUILDERS
 export const updateUser = (user) => {
-    console.log(user)
     return {
         type: UPDATE_USER,
         payload: user

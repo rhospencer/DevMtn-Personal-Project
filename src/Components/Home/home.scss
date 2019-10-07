@@ -62,7 +62,41 @@
     background-image: url('../../assets/myPlans.jpg');
     background-size: 500px;
     background-repeat: no-repeat;
-    background-position-x: 90%;
+    background-position-x: 80%;
     background-position-y: 70%;
 
+}
+
+@media(max-width: 375px) {
+    .home {
+        margin-top: 10vh;
+    }
+
+    .hero {
+        justify-content: center;
+        padding-left: 0rem;
+        padding-bottom: 1rem;
+        
+    }
+
+    .register {
+        width: 50vw;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .info-box {
+        height: 50vh;
+        width: 70vw;
+        margin-top: 1rem;
+    }
+
+    .img-box-my-plans {
+        background-position-y: 80%;
+        background-position-x: 80%;
+    }
 }

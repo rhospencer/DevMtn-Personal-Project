@@ -64,7 +64,7 @@ class Home extends Component {
                             <input onChange={e => this.handleChange(e, 'password2')} value={this.state.password2}placeholder='Re-Enter Password' type="password"/>
                             <input onChange={e => this.handleChange(e, 'city')} value={this.state.city} placeholder='City' type="text"/>
                             <select onChange={e => this.handleChange(e, 'state')} value={this.state.state}>
-                                <option defaultValue='' disabled selected>State</option>
+                                <option value='' disabled selected>State</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
                                 <option value="AZ">Arizona</option>

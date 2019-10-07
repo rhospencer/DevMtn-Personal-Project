@@ -8,3 +8,11 @@
     min-height: 5vh;
     
 }
+
+@media(max-width: 375px) {
+    .login {
+        background: $secondary-color;
+        display: flex;
+        justify-content: space-around;
+    }
+}

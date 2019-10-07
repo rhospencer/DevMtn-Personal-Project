@@ -21,3 +21,15 @@
   margin-left: $nav-width;
 }
 
+@media (max-width: 375px) {
+  .App {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  
+  .main-page {
+    margin-left: 0;
+  }
+}
+

@@ -10,7 +10,7 @@ class Nav extends Component {
         super()
 
         this.state = {
-
+            dropdown: 'dropdown-hide'
         }
     }
 
@@ -21,6 +21,14 @@ class Nav extends Component {
                     this.props.updateUser(user)
                 }
             })
+    }
+
+    dropdownHide() {
+        if (this.state.dropdown === 'dropdown') {
+            this.setState({dropdown: 'dropdown-hide'})
+        } else {
+            this.setState({dropdown: 'dropdown'})
+        }
     }
 
     logout = async () => {
@@ -34,53 +42,84 @@ class Nav extends Component {
     render() {
         return(
             <div className="nav">
-                {this.props.loggedIn ? 
-                    this.props.user && this.props.user.profile_pic ?
-                    <img src={this.props.user.profile_pic} alt="Profile Picture"/>
-                    :
-                    <img src="https://i0.wp.com/acaweb.org/wp-content/uploads/2018/12/profile-placeholder.png?fit=300%2C300&ssl=1" alt="Default Profile Picture"/>
-                :
-                null
-            }
-                <div className="link-icons">
-                    <Link to={'/'}>
-                        <div className="nav-element">
-                            <i class="fas fa-home fa-3x"></i>
-                            Home
-                        </div>
-                    </Link>
-                    <Link to={'/find_routes'}>
-                        <div className="nav-element">
-                            <i class="fas fa-route fa-3x"></i>
-                            Find Routes
-                        </div>
-
-                    </Link>
-                    {this.props.loggedIn ?
-                    <div className="conditional-nav">
-                        <Link to={'/my_routes'}>
-                            <div className="nav-element">
-                                <i class="fas fa-map-signs fa-3x"></i>
-                                My Routes
-                            </div>
-                        </Link>
-                        <Link to={'/my_plans'}>
-                            <div className="nav-element">
-                                <i class="fas fa-calendar-day fa-3x"></i>
-                                My Plans
-                            </div>
-                        </Link>
-                        <div className="logout-element">
-                            <div className="nav-element" onClick={this.logout}>
-                                <i class="fas fa-sign-out-alt fa-3x fa-flip-horizontal"></i>
-                                Logout
-                            </div>
-                        </div>
-                    </div>
+                <div className="nav-desktop">
+                    {this.props.loggedIn ? 
+                        this.props.user && this.props.user.profile_pic ?
+                        <img src={this.props.user.profile_pic} alt="Profile Picture"/>
+                        :
+                        <img src="https://i0.wp.com/acaweb.org/wp-content/uploads/2018/12/profile-placeholder.png?fit=300%2C300&ssl=1" alt="Default Profile Picture"/>
                     :
                     null
                 }
+                    <div className="link-icons">
+                        <Link to={'/'}>
+                            <div className="nav-element">
+                                <i className="fas fa-home fa-3x"></i>
+                                Home
+                            </div>
+                        </Link>
+                        <Link to={'/find_routes'}>
+                            <div className="nav-element">
+                                <i className="fas fa-route fa-3x"></i>
+                                Find Routes
+                            </div>
+                        </Link>
+                        {this.props.loggedIn ?
+                        <div className="conditional-nav">
+                            <Link to={'/my_routes'}>
+                                <div className="nav-element">
+                                    <i className="fas fa-map-signs fa-3x"></i>
+                                    My Routes
+                                </div>
+                            </Link>
+                            <Link to={'/my_plans'}>
+                                <div className="nav-element">
+                                    <i className="fas fa-calendar-day fa-3x"></i>
+                                    My Plans
+                                </div>
+                            </Link>
+                            <div className="logout-element">
+                                <div className="nav-element" onClick={this.logout}>
+                                    <i className="fas fa-sign-out-alt fa-3x fa-flip-horizontal"></i>
+                                    Logout
+                                </div>
+                            </div>
+                        </div>
+                        :
+                        null
+                    }
+                    </div>
                 </div>
+                <div className={this.state.dropdown}>
+                    <div className="menu">
+                        <i onClick={() => this.logout()} className="fas fa-sign-out-alt fa-2x fa-flip-horizontal"></i>
+                        <i onClick={() => this.dropdownHide()} className="fas fa-bars fa-2x"></i>
+                    </div>
+                    {this.state.dropdown === 'dropdown' ? 
+                        <div className="nav-mobile-elements">
+                            <Link onClick={() => this.dropdownHide()} to={'/'}><h4>Home</h4></Link>
+                            <hr/>
+                            <Link onClick={() => this.dropdownHide()} to={'/find_routes'}><h4>Find Routes</h4></Link>
+                            <hr/>
+                            {this.props.loggedIn ?
+                                <div className="nav-mobile-elements">
+                                    <Link onClick={() => this.dropdownHide()} to={'/my_routes'}><h4>My Routes</h4></Link>
+                                    <hr/>
+                                    <Link onClick={() => this.dropdownHide()} to={'/my_plans'}><h4>My Plans</h4></Link>
+                                </div>
+                            :
+                                null
+                        }
+                        </div>
+                        :
+                        null
+                    
+                }
+                </div>
+
+
+
+
             </div>
         )
     }

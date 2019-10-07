@@ -1,6 +1,6 @@
 @import "../../variables.scss";
 
-.nav {
+.nav-desktop {
     background: $secondary-background;
     height: 100vh;
     position: fixed;
@@ -18,8 +18,22 @@
     }
 }
 
+.dropdown {
+    display: none;
+}
+
+.dropdown-hide {
+    display: none;
+}
+
 .link-icons {
     overflow: hidden;
+}
+
+.conditional-nav {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .nav-element {
@@ -36,10 +50,74 @@
 
 .logout-element {
     display: flex;
-    justify-content: center;
-    padding-top: 160px;
+    justify-self: flex-end;
+    flex-direction: column;
+    align-self: flex-end;
+    position: absolute;
+    bottom: 20px;
+    right: 50%;
+    transform: translate(50%, 0);
     cursor: pointer;
     &:hover {
         color: $secondary-color;
     }
+}
+
+@media(max-width: 375px) {
+    .nav-desktop {
+        display: none;
+    }
+
+    .menu {
+        height: 10vh;
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 20px;
+        padding-left: 20px;
+        color: $primary-color;
+    }
+
+    .dropdown-hide {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: absolute;
+        z-index: 2;
+        height: 10vh;
+        width: 100vw;
+        background: $secondary-background;
+    }
+
+    .dropdown {
+        display: flex;
+        flex-direction: column;
+
+        position: absolute;
+        z-index: 2;
+        height: 30vh;
+        width: 100vw;
+        background: $secondary-background;
+    }
+
+    .nav-mobile-elements {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        line-height: 1.7rem;
+        h4 {
+            color: white;
+            text-decoration: none;
+        }
+        hr {
+            width: 90vw;
+        }
+        a {
+            text-decoration: none;
+        }
+    }
+
 }
