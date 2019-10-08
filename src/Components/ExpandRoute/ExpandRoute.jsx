@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './expand-route.scss'
 
 export default class ExpandRoute extends Component {
     constructor(props) {

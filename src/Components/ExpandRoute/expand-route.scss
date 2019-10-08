@@ -1,0 +1,10 @@
+@import "../../variables.scss";
+
+@media(max-width: 425px) {
+    .more-box {
+        padding-top: 8px;
+        p {
+            display: none;
+        }
+    }
+}

@@ -120,17 +120,20 @@
     }
 }
 
-@media(max-width: 375px) {
+@media(max-width: 425px) {
     .route-page {
         width: 100vw;
         margin-top: 10vh;
-        height: 160vh;
+        height: 120vh;
+        overflow-y: hidden;
     }
 
     .route-holder {
         width: 300px;
         height: 700px;
         justify-content: space-between;
+        margin-bottom: 10px;
+        margin-top: 10px;
     }
 
     .profile-info-holder {

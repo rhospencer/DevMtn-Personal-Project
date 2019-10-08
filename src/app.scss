@@ -21,7 +21,7 @@
   margin-left: $nav-width;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 425px) {
   .App {
     display: flex;
     flex-direction: column;
@@ -30,6 +30,7 @@
   
   .main-page {
     margin-left: 0;
+    height: 100vh;
   }
 }
 

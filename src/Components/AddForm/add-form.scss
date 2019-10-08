@@ -132,3 +132,35 @@
         text-align: center;
     }
 }
+
+@media(max-width: 425px) {
+    .add-form-page {
+        width: 100vw;
+        margin-top: 10vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 130vh;
+        overflow-y: hidden;
+    }
+
+    .preview-route-holder {
+        display: none;
+    }
+    
+    .add-form-page-main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 120vh;
+        padding-bottom: 40vh;
+    }
+
+    .add-form-holder {
+        width: 80vw;
+    }
+
+    .add-form {
+        width: 100%;
+    }
+}
