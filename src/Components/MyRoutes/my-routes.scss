@@ -63,3 +63,14 @@
     align-items: center;
 }
 
+@media(max-width: 375px) {
+    .my-routes-page {
+        width: 100vw;
+        margin-top: 10vh;
+    }
+
+    .my-routes-holder {
+        align-items: center;
+        flex-direction: column;
+    }
+}

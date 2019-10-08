@@ -103,9 +103,12 @@ class Route extends Component {
                             </div>
                         </div>
                         <div className="description-holder">
+                            <div className="pi">
                                 <h4>Route Description</h4>
                                 <br/>
                                 <p>{this.state.route.description}</p>
+
+                            </div>
                         </div>
                         {this.props.user && this.props.user.user_id === this.state.route.creator_id ? 
                             <div className="edit-route-holder">

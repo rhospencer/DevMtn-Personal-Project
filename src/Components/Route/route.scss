@@ -18,7 +18,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 50px;
+    border-radius: 20px;
     margin-bottom: 40px;
     
 } 
@@ -117,5 +117,96 @@
     }
     p {
         padding: 0 20px;
+    }
+}
+
+@media(max-width: 375px) {
+    .route-page {
+        width: 100vw;
+        margin-top: 10vh;
+        height: 160vh;
+    }
+
+    .route-holder {
+        width: 300px;
+        height: 700px;
+        justify-content: space-between;
+    }
+
+    .profile-info-holder {
+        width: 100%;
+    }
+
+    .profile-holder {
+        height: 10%;
+        padding-left: 10px;
+        font-size: .6rem;
+        img {
+            height: 55px;
+            width: 55px;
+        }
+    }
+
+    .cancel-button-holder {
+        padding-right: 10px;
+        font-size: .3rem;
+    }
+
+    .route-info-holder {
+        flex-direction: column;
+        height: 60%;
+        br {
+            line-height: 0;
+        }
+    }
+
+    .info-holder {
+        height: 50%;
+    }
+
+    .route-info {
+        height: 100%;
+        line-height: 2rem;
+        text-align: center;
+        br {
+            display: none;
+        }
+        h1 {
+            font-size: 1.8rem;
+            overflow-y: hidden;
+        }
+        h2 {
+            font-size: 1.4rem;
+        }
+}
+
+    .route-img-holder {
+        height: 50%;
+        justify-content: center;
+        img {
+            width: 80%;
+            height: auto;
+        }
+    }
+
+    .description-holder {
+        padding-top: 0;
+        margin-bottom: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .pi {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        p {
+            font-size: .2rem;
+        }
     }
 }
