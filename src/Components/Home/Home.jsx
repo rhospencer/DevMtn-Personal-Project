@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
 import Login from '../Login/Login'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 import {v4 as randomString} from 'uuid'
 import Dropzone from 'react-dropzone';
 import {GridLoader} from 'react-spinners'
 import {updateUser} from '../../ducks/reducer'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import './home.scss' 
 
 class Home extends Component {
@@ -70,14 +72,25 @@ class Home extends Component {
             const res = await axios.post('/auth/register', {username, password: password2, city, state, zip, profile_pic})
             if (!res.data.user) {
                 this.cancelInputs()
-                return alert(res.data.message)
+                return Swal.fire({
+                    text: res.data.message.text,
+                    type: res.data.message.type,
+                    timer: 1500,
+                showConfirmButton: false
+                })
             }
             const user = {user: {user_id: res.data.user.user_id, username: res.data.user.username, profile_pic: res.data.user.profile_pic}, loggedIn: res.data.loggedIn}
             this.props.updateUser(user)
             this.cancelInputs()
         } else {
             this.cancelPasswords()
-            alert(`Passwords Don't Match`)
+            // alert(`Passwords Don't Match`)
+            Swal.fire({
+                text: `Passwords don't match!`,
+                type: 'error',
+                timer: 1500,
+                showConfirmButton: false
+            })
         }
 
     }
@@ -201,14 +214,47 @@ class Home extends Component {
                 <div className="info">
                     <div className="info-box">
                         <div className="img-box-find-routes">
+                            <Link to={'/find_routes'}>
+                                <div className="myButton">
+                                    <h4>Visit Page</h4>
+                                </div>
+                            </Link>
+                        </div>
+                        <div className="page-info-text-box">
+                            <Link to={'/find_routes'}><h2>Find Routes</h2></Link>
+                            <p>
+                                Discover running routes based on location and distance. Add your favorite routes to allow users to add your route into their route collection. 
+                            </p>
                         </div>
                     </div>
                     <div className="info-box">
                         <div className="img-box-my-routes">
+                        <Link to={'/my_routes'}>
+                                <div className="myButton">
+                                    <h4>Visit Page</h4>
+                                </div>
+                            </Link>
+                        </div>
+                        <div className="page-info-text-box">
+                        <Link to={'/my_routes'}><h2>My Routes</h2></Link>
+                            <p>
+                                View your personal collection of routes. Routes either saved or created by you will appear her. Find the route thats perfect for your training.
+                            </p>
                         </div>
                     </div>
                     <div className="info-box">
                         <div className="img-box-my-plans">
+                        <Link to={'/my-plans'}>
+                                <div className="myButton">
+                                    <h4>Visit Page</h4>
+                                </div>
+                            </Link>
+                        </div>
+                        <div className="page-info-text-box">
+                            <Link to={'/my_plans'}><h2>My Plans</h2></Link>
+                            <p>
+                                Create your personal weekly training plans. Incorporate your routes to enhance your training program.
+                            </p>
                         </div>
                     </div>
                 </div>

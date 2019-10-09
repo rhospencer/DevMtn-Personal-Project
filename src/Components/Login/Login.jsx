@@ -27,7 +27,10 @@ class Login extends Component {
             this.props.updateUser(user)
         }
         Swal.fire({
-            text: res.data.message
+            text: res.data.message.text,
+            type: res.data.message.type,
+            timer: 1500,
+            showConfirmButton: false
         })
         // alert(res.data.message)
     }

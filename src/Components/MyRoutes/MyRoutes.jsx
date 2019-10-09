@@ -3,6 +3,7 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
+import Swal from 'sweetalert2'
 import './my-routes.scss'
 
 
@@ -21,6 +22,10 @@ class MyRoutes extends Component {
     componentDidMount() {
         if (!this.props.loggedIn) {
             this.props.history.push('/')
+            Swal.fire({
+                text: 'Must be logged in to visit this page!',
+                type: 'warning'
+            })
         } else {
             this.getPosts()
         }

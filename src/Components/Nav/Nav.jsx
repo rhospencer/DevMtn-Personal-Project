@@ -4,6 +4,7 @@ import axios from 'axios'
 import {updateUser} from '../../ducks/reducer'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 class Nav extends Component {
     constructor() {
@@ -35,8 +36,29 @@ class Nav extends Component {
         const res = await axios.delete('/auth/logout')
         let user = {user: null, loggedIn: false}
         this.props.updateUser(user)
-        alert(res.data.message)
+        // alert(res.data.message)
+        Swal.fire({
+            text: res.data.message.text,
+            type: 'success',
+            timer: 1500,
+            showConfirmButton: false
+        })
         this.props.history.push('/')
+    }
+
+    errorMessage = () => {
+        Swal.fire({
+            text: 'Must be logged in to visit this page!',
+            type: 'warning'
+        })
+    }
+
+    errorMessageMobile = () => {
+        Swal.fire({
+            text: 'Must be logged in to visit this page!',
+            type: 'warning'
+        })
+        this.dropdownHide()
     }
 
     render() {
@@ -45,11 +67,14 @@ class Nav extends Component {
                 <div className="nav-desktop">
                     {this.props.loggedIn ? 
                         this.props.user && this.props.user.profile_pic ?
-                        <img src={this.props.user.profile_pic} alt="Profile Picture"/>
+                        <div className="nav-element">
+                            <img src={this.props.user.profile_pic} alt="Profile Picture"/>
+                            My Profile
+                        </div>
                         :
                         <img src="https://i0.wp.com/acaweb.org/wp-content/uploads/2018/12/profile-placeholder.png?fit=300%2C300&ssl=1" alt="Default Profile Picture"/>
                     :
-                    null
+                    <img src="https://i0.wp.com/acaweb.org/wp-content/uploads/2018/12/profile-placeholder.png?fit=300%2C300&ssl=1" alt="Default Profile Picture"/>
                 }
                     <div className="link-icons">
                         <Link to={'/'}>
@@ -86,7 +111,20 @@ class Nav extends Component {
                             </div>
                         </div>
                         :
-                        null
+                        <div className="conditional-nav">
+                            <Link to={'/my_routes'}>
+                                <div className="nav-element-greyed">
+                                    <i className="fas fa-map-signs fa-3x"></i>
+                                    My Routes
+                                </div>
+                            </Link>
+                            <Link to={'/my_plans'}>
+                                <div className="nav-element-greyed">
+                                    <i className="fas fa-calendar-day fa-3x"></i>
+                                    My Plans
+                                </div>
+                            </Link>
+                        </div>
                     }
                     </div>
                 </div>
@@ -108,7 +146,11 @@ class Nav extends Component {
                                     <Link onClick={() => this.dropdownHide()} to={'/my_plans'}><h4>My Plans</h4></Link>
                                 </div>
                             :
-                                null
+                                <div className="nav-mobile-elements-greyed">
+                                    <Link onClick={() => this.dropdownHide()} to={'/my_routes'}><h4>My Routes</h4></Link>
+                                    <hr/>
+                                    <Link onClick={() => this.dropdownHide()} to={'/my_plans'}><h4>My Plans</h4></Link>
+                                </div>
                         }
                         </div>
                         :

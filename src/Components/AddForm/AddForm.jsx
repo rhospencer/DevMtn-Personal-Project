@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {v4 as randomString} from 'uuid'
@@ -72,7 +73,13 @@ class AddForm extends Component {
 
     addRoute() {
         axios.post('/api/new_route', this.state).then(res => {
-            alert(res.data.message)
+            Swal.fire({
+                text: res.data.message.text,
+                type: res.data.message.type,
+                timer: 1500,
+                showConfirmButton: false
+            })
+            // alert(res.data.message)
             this.props.history.push('/my_routes')
         })
     }

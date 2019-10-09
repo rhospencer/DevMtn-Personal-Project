@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 class MyPlans extends Component {
     constructor() {
@@ -8,6 +9,16 @@ class MyPlans extends Component {
 
         this.state = {
             
+        }
+    }
+
+    componentDidMount() {
+        if (!this.props.loggedIn) {
+            this.props.history.push('/')
+            Swal.fire({
+                text: 'Must be logged in to visit this page!',
+                type: 'warning'
+            })
         }
     }
 

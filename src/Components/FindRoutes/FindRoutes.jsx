@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import './find-routes.scss'
@@ -32,7 +33,13 @@ class FindRoutes extends Component {
 
     saveRoute(route_id) {
         axios.post(`/api/save/${route_id}`).then(res => {
-            alert(res.data.message)
+            Swal.fire({
+                text: res.data.message.text,
+                type: res.data.message.type,
+                timer: 1500,
+                showConfirmButton: false
+            })
+            // alert(res.data.message)
         })
     }
 

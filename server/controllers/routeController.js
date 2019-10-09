@@ -68,7 +68,7 @@ module.exports = {
         const route_id = await db.add_to_routes([user_id, route_img, zip, city, state, starting_address, distance, title, description])
         const route = await db.add_to_user_routes([route_id[0].route_id, user_id])
 
-        res.status(200).send({message: 'New Route Added!'})
+        res.status(200).send({message: {text: 'New route added!', type: 'success'}})
     },
 
     async saveRoute(req, res) {
@@ -77,7 +77,7 @@ module.exports = {
         const {route_id} = req.params
 
         const saved = await db.save_route([route_id, user_id])
-        res.status(200).send({message: "Route Saved"})
+        res.status(200).send({message: {text: "Route saved!", type: 'success'}})
     },
 
     async deleteRoute(req, res) {
@@ -86,7 +86,7 @@ module.exports = {
         const {route_id} = req.params
 
         const deleted_saved_route = await db.delete_saved_route([route_id, user_id])
-        res.status(200).send({message: "Route Deleted From User Routes"})
+        res.status(200).send({message: {text: "Route deleted from user routes!", type: 'success'}})
     },
 
     async editRoute(req, res) {
@@ -96,10 +96,10 @@ module.exports = {
         const {route_img, zip, city, state, starting_address, distance, title, description} = req.body
         const creator_id = await db.get_route_creator_id(route_id)
         if (creator_id[0].creator_id !== user_id) {
-            return res.status(200).send({message: "Cannot edit a route you did not create."})
+            return res.status(200).send({message: {text: "Cannot edit a route you did not create.", type: 'warning'}})
         } else {
             const edited_route = await db.edit_route([route_id, route_img, zip, city, state, starting_address, distance, title, description])
-            return res.status(200).send({message: "Route Edited!"})
+            return res.status(200).send({message: {text: "Route edited!", type: 'success'}})
         }
     }
 }

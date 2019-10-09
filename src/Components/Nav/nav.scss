@@ -48,6 +48,18 @@
     }
 }
 
+.nav-element-greyed {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $tertiary-background;
+    padding-top: 20px;
+    &:hover {
+        color: rgba(197, 198, 199, 0.5);
+    }
+}
+
 .logout-element {
     display: flex;
     justify-self: flex-end;
@@ -61,6 +73,13 @@
     &:hover {
         color: $secondary-color;
     }
+}
+
+.swal2-icon {
+    width: 5em !important;
+    height: 5em !important;
+    border-width: .25em !important;
+    overflow: hidden !important;
 }
 
 @media(min-width: 425px) and (max-width: 768px) {
@@ -80,6 +99,15 @@
             color: $primary-color;
         }
         
+    }
+
+    .nav-element-greyed {
+        justify-content: center;
+        text-align: center;
+        font-size: .7rem;
+        &:hover {
+            color: $tertiary-background;
+        }
     }
 }
 
@@ -129,7 +157,7 @@
         align-items: center;
         line-height: 1.7rem;
         h4 {
-            color: white;
+            color: $primary-color;
             text-decoration: none;
         }
         hr {
@@ -139,5 +167,25 @@
             text-decoration: none;
         }
     }
+
+    .nav-mobile-elements-greyed {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        line-height: 1.7rem;
+        h4 {
+            color: $tertiary-background;
+            text-decoration: none;
+        }
+        hr {
+            width: 90vw;
+        }
+        a {
+            text-decoration: none;
+        }
+    }
+
 
 }
