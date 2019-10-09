@@ -37,7 +37,7 @@ export default class ExpandRoute extends Component {
                         <div className="more-info-button">
                             <div className="more-box" onClick={() => this.handleMoreInfoChange()}>
                                 <p>More Info</p>  
-                                <i class="fas fa-chevron-down"></i>
+                                <i className="fas fa-chevron-down"></i>
                             </div>
                         </div>
                     </div>

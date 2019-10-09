@@ -63,6 +63,26 @@
     }
 }
 
+@media(min-width: 425px) and (max-width: 768px) {
+
+    .nav-desktop{
+        img {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    .nav-element {
+        justify-content: center;
+        text-align: center;
+        font-size: .7rem;
+        &:hover {
+            color: $primary-color;
+        }
+        
+    }
+}
+
 @media(max-width: 425px) {
     .nav-desktop {
         display: none;

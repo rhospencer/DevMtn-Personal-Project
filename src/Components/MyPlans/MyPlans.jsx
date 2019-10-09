@@ -7,13 +7,7 @@ class MyPlans extends Component {
         super()
 
         this.state = {
-
-        }
-    }
-
-    componentDidMount() {
-        if (!this.props.loggedIn) {
-            this.props.history.push('/')
+            
         }
     }
 
@@ -22,6 +16,7 @@ class MyPlans extends Component {
         return(
             <div className="my-plans">
                 MyPlans
+
             </div>
         )
     }

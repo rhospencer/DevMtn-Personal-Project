@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
+import {v4 as randomString} from 'uuid'
+import Dropzone from 'react-dropzone';
+import {GridLoader} from 'react-spinners'
 import './add-form.scss'
 
 class AddForm extends Component {
@@ -9,15 +12,52 @@ class AddForm extends Component {
         super()
 
         this.state = {
-            route_img: '',
+            route_img: 'https://www.sylvansport.com/wp/wp-content/uploads/2018/11/image-placeholder-1200x800.jpg',
             zip: null,
             city: '',
             state: '',
             starting_address: '',
-            distance: null,
+            distance: '',
             title: '',
-            description: ''
+            description: '',
+            isUploading: false
         }
+    }
+
+    getSignedRequest = ([file]) => {
+        this.setState({isUploading: true})
+        const fileName = `${randomString()}-${file.name.replace(/\s/g, '-')}`
+
+        axios.get('/api/signs3', {
+            params: {
+                'file-name': fileName,
+                'file-type': file.type,
+            },
+        })
+        .then(response => {
+            const {signedRequest, url} = response.data
+            this.uploadFile(file, signedRequest, url)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
+    uploadFile = (file, signedRequest, url) => {
+        const options = {
+            headers: {
+                'Content-Type': file.type
+            }
+        }
+        console.log(signedRequest)
+        axios.put(signedRequest, file, options).then(response => {
+            this.setState({isUploading: false, route_img: url})
+        })
+        .catch(err => {
+            this.setState({
+                isUploading: false
+            })
+        })
     }
 
     componentDidMount() {
@@ -42,6 +82,7 @@ class AddForm extends Component {
     }
 
     render() {
+        const {isUploading} = this.state
         return(
             <div className="add-form-page">
                 <div className="page-title">
@@ -109,7 +150,41 @@ class AddForm extends Component {
                             </select>
                             <input onChange={e => this.handleChange(e, 'zip')} placeholder="Zip Code" value={this.state.zip} type="number"/>
                             <input onChange={e => this.handleChange(e, 'starting_address')} placeholder="Starting Address" value={this.state.starting_address} type="text"/>
-                            <input onChange={e => this.handleChange(e, 'route_img')} placeholder="Route Image" value={this.state.route_img} type="text"/>
+                            {/* <input onChange={e => this.handleChange(e, 'route_img')} placeholder="Route Image" value={this.state.route_img} type="text"/> */}
+                            <Dropzone
+                                onDropAccepted={this.getSignedRequest}
+                                style={{
+                                    position: 'relative',
+                                    width: 200,
+                                    height: 200,
+                                    borderWidth: 7,
+                                    marginTop: 100,
+                                    borderColor: 'rgb(102, 102, 102)',
+                                    borderStyle: 'dashed',
+                                    borderRadius: 5,
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    fontSize: 28,
+                                }}
+                                accept="image/*"
+                                multiple={false}
+                                >
+                                    {({getRootProps, getInputProps}) => (
+                                        <section>
+                                            <div {...getRootProps()}>
+                                                <input {...getInputProps()}/>
+                                                <div className="file-drop">
+                                                {isUploading ? 
+                                                <GridLoader /> 
+                                                : <p>Drop File or Click Here</p>
+                                                }
+                                                </div>
+                                            </div>
+                                        </section>
+                                    )}
+                                
+                            </Dropzone>
                             <input onChange={e => this.handleChange(e, 'description')} placeholder="Description" value={this.state.description} type="text"/>
                             <div className="add-form-button-holder">
                                 <button onClick={this.clearInputs}>Clear</button>

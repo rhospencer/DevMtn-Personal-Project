@@ -107,7 +107,7 @@
         color: $primary-color;
     }
     h2 {
-        color: $primary-color;
+        color: white;
     }
 }
 
@@ -136,6 +136,10 @@
     &:hover {
         color: $secondary-color;
     }
+}
+
+@media(min-width: 425px) and (max-width: 768px) {
+    
 }
 
 @media(max-width: 425px) {

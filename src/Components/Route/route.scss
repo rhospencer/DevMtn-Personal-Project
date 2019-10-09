@@ -20,6 +20,7 @@
     align-items: center;
     border-radius: 20px;
     margin-bottom: 40px;
+    text-align: center;
     
 } 
 
@@ -111,12 +112,55 @@
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     h4 {
         color: $primary-color;
         text-decoration: underline;
     }
     p {
         padding: 0 20px;
+    }
+}
+
+@media(min-width: 425px) and (max-width: 768px) {
+    .route-holder {
+        width: 600px;
+    }
+
+    .profile-holder {
+        img {
+            width: 60px;
+            height: 60px;
+        }
+        h3 {
+            font-size: 1rem;
+        }
+    }
+
+    .preview-info-holder {
+        h1 {
+            font-size: .1rem;
+        }
+    }
+
+    .route-img-holder {
+        height: 100%;
+        img {
+            width: 80%;
+            height: auto;
+        }
+    }
+
+    .route-info {
+        text-align: center;
+        br {
+            // display: none;
+        }
+    }
+
+    .description-holder {
+        padding-top: 10px;
+        text-align: center;
     }
 }
 

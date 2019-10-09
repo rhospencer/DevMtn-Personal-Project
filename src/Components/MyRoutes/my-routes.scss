@@ -63,6 +63,33 @@
     align-items: center;
 }
 
+@media(min-width: 425px) and (max-width: 768px) {
+    .my-routes-holder {
+        justify-content: center;
+    }
+
+    .route-info {
+        h1 {
+            overflow-y: hidden;
+        }
+        h2 {
+            overflow-y: hidden;
+        }
+        h4 {
+            overflow-y: hidden;
+        }
+        p {
+            overflow-y: hidden;
+        }
+    }
+
+    .preview-info-holder {
+        text-align: center;
+    }
+}
+
+
+
 @media(max-width: 425px) {
     .my-routes-page {
         width: 100vw;
