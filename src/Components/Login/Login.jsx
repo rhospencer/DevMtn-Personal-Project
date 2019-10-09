@@ -40,7 +40,10 @@ class Login extends Component {
             <div className="login">
                 <input onChange={e => this.handleChange(e, 'username')} placeholder="Username" type="text"/>
                 <input onChange={e => this.handleChange(e, 'password')} placeholder="Password" type="password"/>
-                <button onClick={this.login}>Login</button>
+                {/* <button onClick={this.login}>Login</button> */}
+                <div onClick={this.login} className="my-button-login">
+                    Login
+                </div>
             </div>
         )
     }

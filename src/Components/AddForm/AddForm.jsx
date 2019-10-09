@@ -21,12 +21,14 @@ class AddForm extends Component {
             distance: '',
             title: '',
             description: '',
-            isUploading: false
+            isUploading: false,
+            fileName: ''
         }
     }
 
     getSignedRequest = ([file]) => {
-        this.setState({isUploading: true})
+        console.log(file.name)
+        this.setState({isUploading: true, fileName: file.name})
         const fileName = `${randomString()}-${file.name.replace(/\s/g, '-')}`
 
         axios.get('/api/signs3', {
@@ -50,7 +52,6 @@ class AddForm extends Component {
                 'Content-Type': file.type
             }
         }
-        console.log(signedRequest)
         axios.put(signedRequest, file, options).then(response => {
             this.setState({isUploading: false, route_img: url})
         })
@@ -64,6 +65,12 @@ class AddForm extends Component {
     componentDidMount() {
         if (!this.props.loggedIn) {
             this.props.history.push('/')
+            Swal.fire({
+                type: 'warning',
+                text: 'Must be logged in to create route!',
+                timer: 1500,
+                showConfirmButton: false
+            })
         }
     }
 
@@ -85,7 +92,7 @@ class AddForm extends Component {
     }
 
     clearInputs = () => {
-        this.setState({route_img: '', zip: '', city: '', state: '', starting_address: '', distance: '', title: '', description: ''})
+        this.setState({route_img: 'https://www.sylvansport.com/wp/wp-content/uploads/2018/11/image-placeholder-1200x800.jpg', zip: '', city: '', state: '', starting_address: '', distance: '', title: '', description: '', fileName: ''})
     }
 
     render() {
@@ -184,7 +191,10 @@ class AddForm extends Component {
                                                 <div className="file-drop">
                                                 {isUploading ? 
                                                 <GridLoader /> 
-                                                : <p>Drop File or Click Here</p>
+                                                : this.state.fileName ? 
+                                                    <p>{this.state.fileName}</p>
+                                                :
+                                                    <p>Drop File or Click Here</p>
                                                 }
                                                 </div>
                                             </div>

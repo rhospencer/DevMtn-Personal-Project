@@ -75,6 +75,10 @@ module.exports = {
         const db = req.app.get('db')
         const {user_id} = req.session.user
         const {route_id} = req.params
+        const saved_route = await db.get_user_saved_route([user_id, route_id])
+        if (saved_route[0]) {
+            return res.status(200).send({message: {text: 'Route already saved!', type: 'warning'}})
+        }
 
         const saved = await db.save_route([route_id, user_id])
         res.status(200).send({message: {text: "Route saved!", type: 'success'}})
@@ -84,6 +88,7 @@ module.exports = {
         const db = req.app.get('db')
         const {user_id} = req.session.user
         const {route_id} = req.params
+        
 
         const deleted_saved_route = await db.delete_saved_route([route_id, user_id])
         res.status(200).send({message: {text: "Route deleted from user routes!", type: 'success'}})

@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import axios from 'axios'
+import Swal from 'sweetalert2'
 import './expand-route.scss'
 
 export default class ExpandRoute extends Component {
@@ -12,6 +14,18 @@ export default class ExpandRoute extends Component {
 
     handleMoreInfoChange() {
         this.setState({moreInfo: !this.state.moreInfo})
+    }
+
+    saveRoute(route_id) {
+        axios.post(`/api/save/${route_id}`).then(res => {
+            Swal.fire({
+                text: res.data.message.text,
+                type: res.data.message.type,
+                timer: 1500,
+                showConfirmButton: false
+            })
+            // alert(res.data.message)
+        })
     }
 
     render() {

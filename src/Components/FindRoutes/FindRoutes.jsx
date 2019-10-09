@@ -53,7 +53,12 @@ class FindRoutes extends Component {
                     <h1>Find Routes</h1>
                 </div>
                 <div className="add-new-route">
-                    <Link to={'/add_form'}><button>Add New Route</button></Link>
+                    <Link to={'/add_form'}>
+                        {/* <button>Add New Route</button> */}
+                        <div className="my-button-get-routes">
+                            Add New Route
+                        </div>
+                        </Link>
                 </div>
                 <div className="search-holder">
                     <div className="search">
@@ -62,7 +67,10 @@ class FindRoutes extends Component {
                             <input value={this.state.distance} onChange={e => this.handleChange(e, 'distance')} placeholder="Distance" type="number"/>
                             <input value={this.state.distance} onChange={e => this.handleChange(e, 'distance')} placeholder="Distance" type="range" min="0" max="50"/>
                         </div>
-                        <button onClick={() => this.getPosts()}>Get Routes!</button>
+                        {/* <button onClick={() => this.getPosts()}>Get Routes!</button> */}
+                        <div onClick={() => this.getPosts()} className="my-button-get-routes">
+                            Get Routes
+                        </div>
                     </div>
                 </div>
                 <div className="find-routes-holder">

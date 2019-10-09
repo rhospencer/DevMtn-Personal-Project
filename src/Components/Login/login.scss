@@ -6,7 +6,37 @@
     justify-content: flex-end;
     align-items: center;
     min-height: 5vh;
+    padding-right: 20px;
+    input {
+        margin-right: 20px;
+        border: 2px solid $primary-color;
+        border-radius: 4px;
+        background: $secondary-background;
+        color: white;
+        padding: 2px 8px;
+        transition: padding .15s ease-in, border .15s ease-in;
+        &:focus {
+            padding: 4px 10px;
+            outline: none;
+            border: 2px solid $secondary-color;
+        } 
+    }
     
+}
+
+.my-button-login {
+	background-color: $primary-color;
+	border-radius:10px;
+	display:inline-block;
+	cursor:pointer;
+	color:$secondary-background;
+	font-family:Arial;
+	font-size:14px;
+	padding:4px 8px;
+    text-decoration:none;
+    &:hover {
+        background: $secondary-color;
+    }
 }
 
 @media(max-width: 425px) {

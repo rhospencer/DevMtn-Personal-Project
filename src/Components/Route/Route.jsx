@@ -22,12 +22,13 @@ class Route extends Component {
             distance: '',
             title: '',
             description: '',
-            isUploading: false
+            isUploading: false,
+            fileName: ''
         }
     }
 
     getSignedRequest = ([file]) => {
-        this.setState({isUploading: true})
+        this.setState({isUploading: true, fileName: file.name})
         const fileName = `${randomString()}-${file.name.replace(/\s/g, '-')}`
 
         axios.get('/api/signs3', {
@@ -51,7 +52,6 @@ class Route extends Component {
                 'Content-Type': file.type
             }
         }
-        console.log(signedRequest)
         axios.put(signedRequest, file, options).then(response => {
             this.setState({isUploading: false, route_img: url})
         })
@@ -130,7 +130,8 @@ class Route extends Component {
             distance: '',
             title: '',
             description: '',
-            isUploading: false
+            isUploading: false,
+            fileName: ''
         })
     }
 
@@ -286,7 +287,10 @@ class Route extends Component {
                                                         <div className="file-drop">
                                                         {isUploading ? 
                                                         <GridLoader /> 
-                                                        : <p>Drop File or Click Here</p>
+                                                        : this.state.fileName ? 
+                                                            <p>{this.state.fileName}</p>
+                                                        :
+                                                            <p>Drop File or Click Here</p>
                                                         }
                                                         </div>
                                                     </div>

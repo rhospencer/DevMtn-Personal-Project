@@ -15,12 +15,82 @@
 }
 
 .register {
-    height: 40vh;
+    height: 45vh;
     width: 20vw;
     background: rgba(31, 40, 51, 0.753);
     @include flex-column-center;
     justify-content: space-around;
+    align-items: center;
     border-radius: 10px;
+    input {
+        border: 2px solid $primary-color;
+        border-radius: 4px;
+        background: $secondary-background;
+        color: white;
+        padding: 2px 8px;
+        transition: padding .15s ease-in, border .15s ease-in;
+        &:focus {
+            padding: 4px 10px;
+            outline: none;
+            border: 2px solid $secondary-color;
+        } 
+    }
+    select {
+        position: relative;
+        border: 2px solid $primary-color;
+        border-radius: 4px;
+        background: $secondary-background;
+        color: white;
+        padding: 2px 8px;
+        width: 145px;
+        height: 22px;
+        cursor: pointer;
+        transition: height .15s ease-in, width .15s ease-in;
+        &:focus{
+            width: 160px;
+            height: 30px;
+            outline: none;
+            border: 2px solid $secondary-color;
+        }
+    }
+}
+
+div {
+    &:focus {
+        outline: none;
+    }
+}
+
+.file-drop {
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 160px;
+    font-size: .9rem;
+    text-align: center;
+    border: 2px dashed $primary-color;
+    border-radius: 4px;
+    color: white;
+    overflow-y: hidden;
+    &:hover {
+        border: 2px dashed $secondary-color;
+    }
+    &:focus {
+        outline: none;
+    }
+    p {
+        &:focus {
+            outline: none;
+        }
+    }
 }
 
 .info {
@@ -91,6 +161,14 @@
     &:hover {
         background: $secondary-color;
     }
+}
+
+.register-buttons {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 

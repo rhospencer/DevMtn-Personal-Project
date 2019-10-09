@@ -22,12 +22,13 @@ class Home extends Component {
             state: '',
             zip: null,
             profile_pic: '',
-            isUploading: false
+            isUploading: false,
+            fileName: ''
         }
     }
 
     getSignedRequest = ([file]) => {
-        this.setState({isUploading: true})
+        this.setState({isUploading: true, fileName: file.name})
         const fileName = `${randomString()}-${file.name.replace(/\s/g, '-')}`
 
         axios.get('/api/signs3', {
@@ -51,7 +52,6 @@ class Home extends Component {
                 'Content-Type': file.type
             }
         }
-        console.log(signedRequest)
         axios.put(signedRequest, file, options).then(response => {
             this.setState({isUploading: false, profile_pic: url})
         })
@@ -96,7 +96,7 @@ class Home extends Component {
     }
 
     cancelInputs = () => {
-        this.setState({username: '', password1: '', password2: '', city: '', state: '', zip: '', profile_pic: ''})
+        this.setState({username: '', password1: '', password2: '', city: '', state: '', zip: '', profile_pic: '', fileName: ''})
     }
 
     cancelPasswords = () => {
@@ -199,15 +199,26 @@ class Home extends Component {
                                                 <div className="file-drop">
                                                 {isUploading ? 
                                                 <GridLoader /> 
-                                                : <p>Drop File or Click Here</p>
+                                                : this.state.fileName ? 
+                                                    <p>{this.state.fileName}</p>
+                                                :
+                                                    <p>Drop File or Click Here</p>
                                                 }
                                                 </div>
                                             </div>
                                         </section>
                                     )}
                             </Dropzone>
-                            <button onClick={this.register}>Register</button>
-                            <button onClick={this.cancelInputs}>Clear</button>
+                            <div className="register-buttons">
+                                <div className="my-button-login">
+                                    Clear
+                                </div>
+                                <div className="my-button-login">
+                                    Register
+                                </div>
+                                {/* <button onClick={this.register}>Register</button>
+                                <button onClick={this.cancelInputs}>Clear</button> */}
+                            </div>
                         </div> : 
                     null}
                 </div>
