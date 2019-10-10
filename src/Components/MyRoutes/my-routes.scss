@@ -10,6 +10,24 @@
     align-items: center;
 }
 
+.check-box-holder {
+    background: $secondary-background;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 160px;
+    height: 22px;
+    border-radius: 4px;
+    border: 2px solid $primary-color;
+    font-size: .8rem;
+    transition: border .15s ease-in;
+    &:hover{
+        border: 2px solid $secondary-color;
+    }
+    
+}
+
 .my-routes-holder {
     width: 960px;
     display: flex;

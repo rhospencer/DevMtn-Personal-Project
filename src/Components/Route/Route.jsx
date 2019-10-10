@@ -180,10 +180,14 @@ class Route extends Component {
                         </div>
                         {this.props.user && this.props.user.user_id === this.state.route.creator_id ? 
                             <div className="edit-route-holder">
-                                <br/>
-                                <br/>
-                                <button onClick={() => this.handleEditChange()}>Edit</button>
-                                <button onClick={() => this.deleteRoute()}>Delete</button>
+                                <div className="add-form-button-holder">
+                                    <div onClick={() => this.handleEditChange()} className="my-button-login">
+                                        Edit
+                                    </div>
+                                    <div onClick={() => this.deleteRoute()} className="my-button-login">
+                                        Delete
+                                    </div>
+                            </div>
                             </div>
                             : 
                             <div className="edit-route-holder">
@@ -299,8 +303,16 @@ class Route extends Component {
                                         
                                     </Dropzone>
                                     <input onChange={e => this.handleInputChange(e, "description")} placeholder="Description" value={this.state.description} type="text"/>
-                                    <button onClick={() => this.goBack()}>Return</button>
-                                    <button onClick={() => this.editRoute()}>Submit Change</button>
+                                    {/* <button onClick={() => this.goBack()}>Return</button>
+                                    <button onClick={() => this.editRoute()}>Submit Change</button> */}
+                                    <div className="add-form-button-holder">
+                                        <div onClick={() => this.goBack()} className="my-button-login">
+                                            Cancel
+                                        </div>
+                                        <div onClick={() => this.editRoute()} className="my-button-login">
+                                            Submit
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="preview-route-holder">

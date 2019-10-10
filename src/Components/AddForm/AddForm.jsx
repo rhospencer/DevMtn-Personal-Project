@@ -93,6 +93,7 @@ class AddForm extends Component {
 
     clearInputs = () => {
         this.setState({route_img: 'https://www.sylvansport.com/wp/wp-content/uploads/2018/11/image-placeholder-1200x800.jpg', zip: '', city: '', state: '', starting_address: '', distance: '', title: '', description: '', fileName: ''})
+        this.props.history.push('/find_routes')
     }
 
     render() {
@@ -204,8 +205,12 @@ class AddForm extends Component {
                             </Dropzone>
                             <input onChange={e => this.handleChange(e, 'description')} placeholder="Description" value={this.state.description} type="text"/>
                             <div className="add-form-button-holder">
-                                <button onClick={this.clearInputs}>Clear</button>
-                                <button onClick={() => this.addRoute()}>Submit</button>
+                                <div onClick={this.clearInputs} className="my-button-login">
+                                    Cancel
+                                </div>
+                                <div onClick={() => this.addRoute()} className="my-button-login">
+                                    Submit
+                                </div>
                             </div>
                         </div>
                     </div>

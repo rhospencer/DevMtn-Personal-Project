@@ -21,6 +21,8 @@
     border-radius: 20px;
     margin-bottom: 40px;
     text-align: center;
+    padding-top: 20px;
+    padding-bottom: 1px;
     
 } 
 
@@ -81,6 +83,14 @@
     }
 }
 
+.edit-route-holder {
+    height: 6vh;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: flex-end;
+}
+
 .route-info {
     height: 220px;
     width: 350px;
@@ -123,6 +133,10 @@
     p {
         padding: 0 20px;
     }
+}
+
+.pi {
+    height: 15vh;
 }
 
 @media(min-width: 425px) and (max-width: 768px) {

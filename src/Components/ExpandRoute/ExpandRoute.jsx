@@ -17,6 +17,14 @@ export default class ExpandRoute extends Component {
     }
 
     saveRoute(route_id) {
+        if (!this.props.loggedIn) {
+            return Swal.fire({
+                text: 'Must be logged in to save route!',
+                type: 'warning',
+                timer: 1500,
+                showConfirmButton: false
+            })
+        }
         axios.post(`/api/save/${route_id}`).then(res => {
             Swal.fire({
                 text: res.data.message.text,
@@ -36,7 +44,8 @@ export default class ExpandRoute extends Component {
                     <div className="expand-route">
                         <div className="route" key={this.props.data.route_id}>
                         <div className="add-button-holder">
-                            <button onClick={() => this.saveRoute(this.props.data.route_id)}>+</button>
+                            {/* <button onClick={() => this.saveRoute(this.props.data.route_id)}>+</button> */}
+                            <i onClick={() => this.saveRoute(this.props.data.route_id)} class="fas fa-plus fa-2x"></i>
                         </div>
                         <div className="display-route">
                             <div className="route-title">
@@ -59,7 +68,8 @@ export default class ExpandRoute extends Component {
                 :
                 <div className="route-holder" key={this.props.data.route_id}>
                     <div className="add-button-holder">
-                        <button onClick={() => this.saveRoute(this.props.data.route_id)}>+</button>
+                        {/* <button onClick={() => this.saveRoute(this.props.data.route_id)}>+</button> */}
+                        <i onClick={() => this.saveRoute(this.props.data.route_id)} class="fas fa-plus fa-2x"></i>
                     </div>
                     <div className="profile-holder">
                         <div className="profile-info-holder">

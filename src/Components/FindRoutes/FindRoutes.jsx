@@ -31,7 +31,22 @@ class FindRoutes extends Component {
         })
     }
 
+    resetSearch() {
+        axios.get('/api/routes').then(res => {
+            this.setState({routes: res.data, city: '', distance: '',})
+        })
+        
+    }
+
     saveRoute(route_id) {
+        if (!this.props.loggedIn) {
+            return Swal.fire({
+                text: 'Must be logged in to save route!',
+                type: 'warning',
+                timer: 1500,
+                showConfirmButton: false
+            })
+        }
         axios.post(`/api/save/${route_id}`).then(res => {
             Swal.fire({
                 text: res.data.message.text,
@@ -70,6 +85,9 @@ class FindRoutes extends Component {
                         {/* <button onClick={() => this.getPosts()}>Get Routes!</button> */}
                         <div onClick={() => this.getPosts()} className="my-button-get-routes">
                             Get Routes
+                        </div>
+                        <div onClick={() => this.resetSearch()} className="my-button-get-routes">
+                            Reset Search
                         </div>
                     </div>
                 </div>

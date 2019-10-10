@@ -45,6 +45,12 @@ class MyRoutes extends Component {
         })
     }
 
+    resetSearch() {
+        axios.get('/api/saved_routes').then(res => {
+            this.setState({routes: res.data, city: '', distance: '', userRoutes: false})
+        })
+    }
+
 
     render() {
         const route = this.state.routes.map(el => {
@@ -71,9 +77,18 @@ class MyRoutes extends Component {
                             <input value={this.state.distance} onChange={e => this.handleChange(e, 'distance')} placeholder="Distance" type="number"/>
                             <input value={this.state.distance} onChange={e => this.handleChange(e, 'distance')} placeholder="Distance" type="range" min="0" max="50"/>
                         </div>
-                <input onChange={() => this.handleCheckBoxChange()} checked={this.state.userRoutes} type="checkbox"/>
-                <button onClick={() => this.getPosts()}>Get Routes!</button>
+                        <div className="check-box-holder">
+                            Created By User: 
+                            <input onChange={() => this.handleCheckBoxChange()} checked={this.state.userRoutes} type="checkbox"/>
+                        </div>
+                {/* <button onClick={() => this.getPosts()}>Get Routes!</button> */}
+                    <div onClick={() => this.getPosts()} className="my-button-get-routes">
+                            Get Routes
                     </div>
+                    <div onClick={() => this.resetSearch()} className="my-button-get-routes">
+                            Reset Search
+                    </div>
+                </div>
                 </div>
                 <div className="my-routes-holder">
                     {route}

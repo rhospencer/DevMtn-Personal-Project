@@ -78,6 +78,7 @@
 	font-size:12px;
 	padding:2px 8px;
     text-decoration:none;
+    transition: border .15s ease-in;
     &:hover {
         border: 2px solid $secondary-color;
     }
@@ -177,6 +178,12 @@
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+    p {
+        overflow-y: hidden; 
+    }
+    i {
+        overflow-y: hidden; 
+    }
     &:hover {
         color: $secondary-color;
     }
@@ -218,6 +225,13 @@
 
     .display-route {
         flex-direction: column;
+    }
+
+    .add-button-holder {
+        padding-right: 20px;
+        i {
+            font-size: 1rem;
+        }
     }
 
     .route-title {
