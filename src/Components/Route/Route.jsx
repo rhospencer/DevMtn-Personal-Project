@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import {connect} from 'react-redux'
 import {v4 as randomString} from 'uuid'
 import Dropzone from 'react-dropzone';
-import {GridLoader} from 'react-spinners'
+import {BarLoader} from 'react-spinners'
 import {withRouter} from 'react-router-dom'
 
 class Route extends Component {
@@ -290,7 +290,7 @@ class Route extends Component {
                                                         <input {...getInputProps()}/>
                                                         <div className="file-drop">
                                                         {isUploading ? 
-                                                        <GridLoader /> 
+                                                        <BarLoader color='#66FCF1'/>  
                                                         : this.state.fileName ? 
                                                             <p>{this.state.fileName}</p>
                                                         :

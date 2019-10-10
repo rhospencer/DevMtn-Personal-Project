@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS login;
 DROP TABLE IF EXISTS routes;
 DROP TABLE IF EXISTS user_saved_routes;
+DROP TABLE IF EXISTS plans;
 
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
@@ -49,3 +50,43 @@ CREATE TABLE user_saved_routes (
 INSERT INTO user_saved_routes (route_id, saved_by)
 VALUES
     (1, 1);
+
+CREATE TABLE plans (
+    plan_id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(user_id),
+    start_date DATE,
+    end_date DATE,
+    week_focus TEXT,
+    m_distance DECIMAL(4, 2),
+    m_type VARCHAR(100),
+    m_description TEXT,
+    m_route INT REFERENCES routes(route_id),
+    tu_distance DECIMAL(4, 2),
+    tu_type VARCHAR(100),
+    tu_description TEXT,
+    tu_route INT REFERENCES routes(route_id),
+    w_distance DECIMAL(4, 2),
+    w_type VARCHAR(100),
+    w_description TEXT,
+    w_route INT REFERENCES routes(route_id),
+    th_distance DECIMAL(4, 2),
+    th_type VARCHAR(100),
+    th_description TEXT,
+    th_route INT REFERENCES routes(route_id),
+    f_distance DECIMAL(4, 2),
+    f_type VARCHAR(100),
+    f_description TEXT,
+    f_route INT REFERENCES routes(route_id),
+    sa_distance DECIMAL(4, 2),
+    sa_type VARCHAR(100),
+    sa_description TEXT,
+    sa_route INT REFERENCES routes(route_id),
+    su_distance DECIMAL(4, 2),
+    su_type VARCHAR(100),
+    su_description TEXT,
+    su_route INT REFERENCES routes(route_id)
+);
+
+INSERT INTO plans (user_id, start_date, end_date, week_focus, m_distance, m_type, m_description, m_route, tu_distance, tu_type, tu_description, tu_route, w_distance, w_type, w_description, w_route, th_distance, th_type, th_description, th_route, f_distance, f_type, f_description, f_route, sa_distance, sa_type, sa_description, sa_route, su_distance, su_type, su_description, su_route)
+VALUES
+    (1, null, null, null, 1, '', '', null, 2, '', '', null, 3, '', '', null, 4, '', '', null, 5, '', '', null, 6, '', '', null, 7, '', '', null);

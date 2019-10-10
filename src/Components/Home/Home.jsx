@@ -4,11 +4,11 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 import {v4 as randomString} from 'uuid'
 import Dropzone from 'react-dropzone';
-import {GridLoader} from 'react-spinners'
+import {BarLoader} from 'react-spinners'
 import {updateUser} from '../../ducks/reducer'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import './home.scss' 
+import './home.scss'
 
 class Home extends Component {
     constructor() {
@@ -198,11 +198,14 @@ class Home extends Component {
                                                 <input {...getInputProps()}/>
                                                 <div className="file-drop">
                                                 {isUploading ? 
-                                                <GridLoader /> 
+                                                <BarLoader color='#66FCF1'/> 
                                                 : this.state.fileName ? 
                                                     <p>{this.state.fileName}</p>
                                                 :
+                                                <div className="drop-box">
+                                                    <h6>Profile Picture</h6>
                                                     <p>Drop File or Click Here</p>
+                                                </div>
                                                 }
                                                 </div>
                                             </div>

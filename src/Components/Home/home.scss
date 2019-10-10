@@ -74,7 +74,7 @@ section {
     align-items: center;
     height: 40px;
     width: 160px;
-    font-size: .9rem;
+    background: $secondary-background;
     text-align: center;
     border: 2px dashed $primary-color;
     border-radius: 4px;
@@ -90,6 +90,14 @@ section {
         &:focus {
             outline: none;
         }
+    }
+}
+.drop-box {
+    h6 {
+        font-size: .9rem;
+    }
+    p {
+        font-size: .1rem;
     }
 }
 

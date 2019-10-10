@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {v4 as randomString} from 'uuid'
 import Dropzone from 'react-dropzone';
-import {GridLoader} from 'react-spinners'
+import {BarLoader} from 'react-spinners'
 import './add-form.scss'
 
 class AddForm extends Component {
@@ -191,11 +191,14 @@ class AddForm extends Component {
                                                 <input {...getInputProps()}/>
                                                 <div className="file-drop">
                                                 {isUploading ? 
-                                                <GridLoader /> 
+                                                <BarLoader color='#66FCF1'/> 
                                                 : this.state.fileName ? 
                                                     <p>{this.state.fileName}</p>
                                                 :
-                                                    <p>Drop File or Click Here</p>
+                                                    <div className="drop-box">
+                                                        <h6>Route Image</h6>
+                                                        <p>Drop File or Click Here</p>
+                                                    </div>
                                                 }
                                                 </div>
                                             </div>

@@ -6,6 +6,7 @@ const aws = require('aws-sdk')
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY} = process.env
 const authCtrl = require('./controllers/authController')
 const routeCtrl = require('./controllers/routeController')
+const planCtrl = require('./controllers/planController')
 
 const app = express()
 
@@ -31,6 +32,8 @@ app.delete('/api/delete/:route_id', routeCtrl.deleteRoute)
 app.put('/api/edit_route/:route_id', routeCtrl.editRoute)
 
 // PLAN ENDPOINTS
+app.get('/api/plans', planCtrl.getAllUserPlans)
+app.get('/api/plan/:plan_id', planCtrl.getSinglePlan)
 
 // S3 ENDPOINTS
 app.get('/api/signs3', (req, res) => {
