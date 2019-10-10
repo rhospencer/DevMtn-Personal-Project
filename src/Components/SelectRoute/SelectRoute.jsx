@@ -4,10 +4,8 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import Swal from 'sweetalert2'
-import './my-routes.scss'
 
-
-class MyRoutes extends Component {
+class SelectRoute extends Component {
     constructor() {
         super()
 
@@ -51,10 +49,13 @@ class MyRoutes extends Component {
         })
     }
 
+    updateRoute(route_id) {
+        console.log(route_id)
+    }
 
     render() {
         const route = this.state.routes.map(el => {
-            return<Link to={`/route/${el.route_id}`}> <div className="my-route-select" key={el.route_id}>
+            return <div className="my-route-select" key={el.route_id} onClick={() => this.updateRoute(el.route_id)}>
                     <div className="my-route-title-select">
                         <h1>{el.title}</h1>
                         <h4>{el.distance}</h4>
@@ -63,12 +64,11 @@ class MyRoutes extends Component {
                         <img src={el.route_img} alt="Route Map"/>
                     </div>
                 </div>
-            </Link>
         })
         return(
             <div className="my-routes-page">
                 <div className="page-title">
-                    <h1>My Routes</h1>
+                    <h1>Select A Route</h1>
                 </div>
                 <div className="search-holder">
                     <div className="search">
@@ -102,4 +102,4 @@ function mapStateToProps(reduxState) {
     const {user, loggedIn} = reduxState
     return {user, loggedIn}
 }
-export default connect(mapStateToProps)(withRouter(MyRoutes))
+export default connect(mapStateToProps)(withRouter(SelectRoute))

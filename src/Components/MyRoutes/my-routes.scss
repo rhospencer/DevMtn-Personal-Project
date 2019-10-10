@@ -52,6 +52,27 @@
     }
 }
 
+.my-route-select {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 280px;
+    width: 280px;
+    background: $secondary-background;
+    margin: 0 20px;
+    margin: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    img {
+        width: 220px;
+        height: auto;
+    }
+    &:hover {
+        border: 4px solid $primary-color;
+    }
+}
+
 .my-route-title {
     height: 40%;
     width: 100%;
@@ -71,6 +92,30 @@
         color: $primary-color;
         text-decoration: none;
     }
+}
+
+.my-route-title-select {
+    height: 40%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-decoration: none;
+    h1 {
+        font-size: 1.8rem;
+        color: $primary-color;
+        text-decoration: underline;
+    }
+    h4 {
+        font-size: 1.2rem;
+        color: $primary-color;
+        text-decoration: none;
+    }
+    
+}
+
+a {
+    text-decoration: none;
 }
 
 .my-route-image {

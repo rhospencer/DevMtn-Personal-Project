@@ -38,8 +38,8 @@ class MyPlans extends Component {
         const plan = this.state.plans.map(el => {
             return<div className="my-plan" key={el.plan_id}>
                 <div className="my-plan-date-holder">
-                    Start Date: {el.start_date}
-                    End Date: {el.end_date}
+                {/* {console.log(el.start_date.getMonth())} */}
+                    <h2>{el.start_date} - {el.end_date}</h2>
                 </div>
                 <div className="my-plan-distance-holder">
                     Total Miles: {+el.m_distance + +el.tu_distance + +el.w_distance + +el.th_distance + +el.f_distance + +el.sa_distance + +el.su_distance}

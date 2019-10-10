@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {Link} from 'react-router-dom'
+import Swal from 'sweetalert2'
 import axios from 'axios'
 import './plan.scss'
 
@@ -10,7 +11,7 @@ class Plan extends Component {
         super()
 
         this.state = {
-            route: [],
+            plan: [],
             start_date: '',
             end_date: '',
             week_focus: '',
@@ -49,7 +50,7 @@ class Plan extends Component {
     componentDidMount() {
         axios.get(`/api/plan/${+this.props.match.params.plan_id}`).then(res => {
             this.setState({
-                route: res.data,
+                plan: res.data,
                 start_date: res.data[0].start_date,
                 end_date: res.data[0].end_date,
                 week_focus: res.data[0].week_focus,
@@ -85,14 +86,26 @@ class Plan extends Component {
         })
     }
 
+    deletePlan() {
+        axios.delete(`/api/delete_plan/${+this.props.match.params.plan_id}`).then(res => {
+            this.props.history.push('/my_plans')
+            Swal.fire({
+                text: res.data.message.text,
+                type: res.data.message.type,
+                timer: 1500,
+                showConfirmButton: false
+            })
+        })
+    }
+
     render() {
         return (
             <div className="plan-page">
                 <div className="plan-holder">
                     <div className="plan-info-holder">
                         <div className="plan-date-holder">
-                            Start Date:{this.state.start_date}
-                            End Date: {this.state.end_date}
+                            
+                            <h2>{this.state.start_date} - {this.state.end_date}</h2>
                         </div>
                         <div className="plan-total-miles-holder">
                             Total Miles: {+this.state.m_distance + +this.state.tu_distance + +this.state.w_distance + +this.state.th_distance + +this.state.f_distance + +this.state.sa_distance + +this.state.su_distance}
@@ -105,7 +118,7 @@ class Plan extends Component {
                             Distance: {this.state.m_distance}
                             Run Type: {this.state.m_type}
                             Description: {this.state.m_description}
-                            Route Info: {this.state.m_route}
+                            <Link to={`/select_route/${this.props.match.params.plan_id}`}><h4>Route Info: {this.state.m_route}</h4></Link>
 
                         </div>
                         <div className="plan-day">
@@ -113,7 +126,7 @@ class Plan extends Component {
                             Distance: {this.state.tu_distance}
                             Run Type: {this.state.tu_type}
                             Description: {this.state.tu_description}
-                            Route Info: {this.state.tu_route}
+                            <Link to={`/select_route/${this.props.match.params.plan_id}`}><h4>Route Info: {this.state.tu_route}</h4></Link>
 
                         </div>
                         <div className="plan-day">
@@ -121,7 +134,7 @@ class Plan extends Component {
                             Distance: {this.state.w_distance}
                             Run Type: {this.state.w_type}
                             Description: {this.state.w_description}
-                            Route Info: {this.state.w_route}
+                            <Link to={`/select_route/${this.props.match.params.plan_id}`}><h4>Route Info: {this.state.w_route}</h4></Link>
 
                         </div>
                         <div className="plan-day">
@@ -129,7 +142,7 @@ class Plan extends Component {
                             Distance: {this.state.th_distance}
                             Run Type: {this.state.th_type}
                             Description: {this.state.th_description}
-                            Route Info: {this.state.th_route}
+                            <Link to={`/select_route/${this.props.match.params.plan_id}`}><h4>Route Info: {this.state.th_route}</h4></Link>
 
                         </div>
                         <div className="plan-day">
@@ -137,7 +150,7 @@ class Plan extends Component {
                             Distance: {this.state.f_distance}
                             Run Type: {this.state.f_type}
                             Description: {this.state.f_description}
-                            Route Info: {this.state.f_route}
+                            <Link to={`/select_route/${this.props.match.params.plan_id}`}><h4>Route Info: {this.state.f_route}</h4></Link>
 
                         </div>
                         <div className="plan-day">
@@ -145,7 +158,7 @@ class Plan extends Component {
                             Distance: {this.state.sa_distance}
                             Run Type: {this.state.sa_type}
                             Description: {this.state.sa_description}
-                            Route Info: {this.state.sa_route}
+                            <Link to={`/select_route/${this.props.match.params.plan_id}`}><h4>Route Info: {this.state.sa_route}</h4></Link>
 
                         </div>
                         <div className="plan-day">
@@ -153,12 +166,16 @@ class Plan extends Component {
                             Distance: {this.state.su_distance}
                             Run Type: {this.state.su_type}
                             Description: {this.state.su_description}
-                            Route Info: {this.state.su_route}
+                            <Link to={`/select_route/${this.props.match.params.plan_id}`}><h4>Route Info: {this.state.su_route}</h4></Link>
 
                         </div>
                     </div>
                     <div className="plan-description-holder">
                         Description: {this.state.week_focus}
+                    </div>
+                    <div className="plan-buttons-holder">
+                        <button>Edit</button>
+                        <button onClick={() => this.deletePlan()}>Delete</button>
                     </div>
                 </div>
             </div>

@@ -89,5 +89,12 @@ module.exports = {
     res
       .status(200)
       .send({ message: { text: "New plan added!", type: "success" } });
+  },
+
+  async deletePlan(req, res) {
+    const db = req.app.get('db')
+    const {plan_id} = req.params
+    const deleted_plan = await db.delete_plan(plan_id)
+    res.status(200).send({message: {text: 'Plan deleted!', type: 'success'}})
   }
 };
