@@ -1,0 +1,35 @@
+@import "../../variables.scss";
+
+.my-plans-page {
+    width: $page-width;
+    min-height: 100vh;
+    background: $tertiary-background;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-plans-holder {
+    min-height: 76vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    padding: 40px 100px;
+}
+
+.my-plan {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    height: 280px;
+    width: 280px;
+    margin: 0 20px;
+    border-radius: 20px;
+    background: $secondary-background;
+    color: white;
+}
+

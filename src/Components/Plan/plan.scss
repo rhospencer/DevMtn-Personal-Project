@@ -1,0 +1,74 @@
+@import "../../variables.scss";
+
+.plan-page {
+    width: $page-width;
+    height: 100vh;
+    background: $tertiary-background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plan-holder {
+    height: 60vh;
+    width: 80vw;
+    background: $secondary-background;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-info-holder {
+    height: 10%;
+    width: 100%;
+    background: $secondary-color;
+    display: flex;
+
+}
+
+.plan-date-holder {
+    height: 100%;
+    width: 50%;
+    background: red;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 40px;
+}
+
+.plan-total-miles-holder {
+    height: 100%;
+    width: 50%;
+    background: blue;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 40px;
+    button {
+        margin-left: 20px;
+    }
+}
+
+.plan-days-holder {
+    height: 70%;
+    width: 100%;
+    background: orange;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.plan-day {
+    width: 12%;
+    height: 80%;
+    background: $tertiary-background;
+}
+
+.plan-description-holder {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}

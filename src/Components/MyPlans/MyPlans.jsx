@@ -4,6 +4,7 @@ import {withRouter} from 'react-router-dom'
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import './my-plans.scss'
 
 class MyPlans extends Component {
     constructor() {
@@ -35,18 +36,40 @@ class MyPlans extends Component {
 
     render() {
         const plan = this.state.plans.map(el => {
-            return <Link to={`/plan/${el.plan_id}`}><div className="my-plan" key={el.plan_id}>
-                Start Date: {el.start_date}
-                End Date: {el.end_date}
-                Total Miles: {+el.m_distance + +el.tu_distance + +el.w_distance + +el.th_distance + +el.f_distance + +el.sa_distance + +el.su_distance}
-                Weekly Description: {el.week_focus}
+            return<div className="my-plan" key={el.plan_id}>
+                <div className="my-plan-date-holder">
+                    Start Date: {el.start_date}
+                    End Date: {el.end_date}
+                </div>
+                <div className="my-plan-distance-holder">
+                    Total Miles: {+el.m_distance + +el.tu_distance + +el.w_distance + +el.th_distance + +el.f_distance + +el.sa_distance + +el.su_distance}
+                </div>
+                <div className="my-plan-description-holder">
+                    Weekly Description: {el.week_focus}
+                </div>
+                <div className="my-plan-button-holder">
+                    <Link to={`/plan/${el.plan_id}`}><button>View Full Plan</button></Link>
+                </div>
 
-            </div></Link>
+            </div>
         })
         return(
-            <div className="my-plans">
-                MyPlans
-                {plan}
+            <div className="my-plans-page">
+                <div className="page-title">
+                    <h1>My Plans</h1>
+                </div>
+                <div className="add-new-route">
+                    <Link to={'/add_plan'}>
+                        {/* <button>Add New Route</button> */}
+                        <div className="my-button-get-routes">
+                            Add Plan
+                        </div>
+                        </Link>
+                </div>
+                <div className="my-plans-holder">
+                    {plan}
+                </div>
+                
 
             </div>
         )

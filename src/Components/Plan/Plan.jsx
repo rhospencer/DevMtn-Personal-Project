@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
+import './plan.scss'
 
 class Plan extends Component {
     constructor() {
@@ -85,16 +87,20 @@ class Plan extends Component {
 
     render() {
         return (
-            <div className="plan">
+            <div className="plan-page">
                 <div className="plan-holder">
                     <div className="plan-info-holder">
-                        {console.log(this.state)}
-                        Start Date:{this.state.start_date}
-                        End Date: {this.state.end_date}
-                        Total Miles: {+this.state.m_distance + +this.state.tu_distance + +this.state.w_distance + +this.state.th_distance + +this.state.f_distance + +this.state.sa_distance + +this.state.su_distance}
+                        <div className="plan-date-holder">
+                            Start Date:{this.state.start_date}
+                            End Date: {this.state.end_date}
+                        </div>
+                        <div className="plan-total-miles-holder">
+                            Total Miles: {+this.state.m_distance + +this.state.tu_distance + +this.state.w_distance + +this.state.th_distance + +this.state.f_distance + +this.state.sa_distance + +this.state.su_distance}
+                            <Link to={'/my_plans'}><button>X</button></Link>
+                        </div>
                     </div>
                     <div className="plan-days-holder">
-                        <div className="monday">
+                        <div className="plan-day">
                             Monday
                             Distance: {this.state.m_distance}
                             Run Type: {this.state.m_type}
@@ -102,7 +108,7 @@ class Plan extends Component {
                             Route Info: {this.state.m_route}
 
                         </div>
-                        <div className="tuesday">
+                        <div className="plan-day">
                             Tuesday
                             Distance: {this.state.tu_distance}
                             Run Type: {this.state.tu_type}
@@ -110,7 +116,7 @@ class Plan extends Component {
                             Route Info: {this.state.tu_route}
 
                         </div>
-                        <div className="wednesday">
+                        <div className="plan-day">
                             Wednesday
                             Distance: {this.state.w_distance}
                             Run Type: {this.state.w_type}
@@ -118,7 +124,7 @@ class Plan extends Component {
                             Route Info: {this.state.w_route}
 
                         </div>
-                        <div className="thursday">
+                        <div className="plan-day">
                             Thursday
                             Distance: {this.state.th_distance}
                             Run Type: {this.state.th_type}
@@ -126,7 +132,7 @@ class Plan extends Component {
                             Route Info: {this.state.th_route}
 
                         </div>
-                        <div className="friday">
+                        <div className="plan-day">
                             Friday
                             Distance: {this.state.f_distance}
                             Run Type: {this.state.f_type}
@@ -134,7 +140,7 @@ class Plan extends Component {
                             Route Info: {this.state.f_route}
 
                         </div>
-                        <div className="saturday">
+                        <div className="plan-day">
                             Saturday
                             Distance: {this.state.sa_distance}
                             Run Type: {this.state.sa_type}
@@ -142,7 +148,7 @@ class Plan extends Component {
                             Route Info: {this.state.sa_route}
 
                         </div>
-                        <div className="sunday">
+                        <div className="plan-day">
                             Sunday
                             Distance: {this.state.su_distance}
                             Run Type: {this.state.su_type}

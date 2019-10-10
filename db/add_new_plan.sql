@@ -1,0 +1,3 @@
+INSERT INTO plans (user_id, start_date, end_date, week_focus, m_distance, m_type, m_description, m_route, tu_distance, tu_type, tu_description, tu_route, w_distance, w_type, w_description, w_route, th_distance, th_type, th_description, th_route, f_distance, f_type, f_description, f_route, sa_distance, sa_type, sa_description, sa_route, su_distance, su_type, su_description, su_route)
+VALUES
+    ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32);

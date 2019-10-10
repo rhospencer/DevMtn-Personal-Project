@@ -34,6 +34,7 @@ app.put('/api/edit_route/:route_id', routeCtrl.editRoute)
 // PLAN ENDPOINTS
 app.get('/api/plans', planCtrl.getAllUserPlans)
 app.get('/api/plan/:plan_id', planCtrl.getSinglePlan)
+app.post('/api/new_plan', planCtrl.addNewPlan)
 
 // S3 ENDPOINTS
 app.get('/api/signs3', (req, res) => {
