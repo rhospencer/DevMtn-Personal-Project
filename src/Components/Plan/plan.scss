@@ -63,6 +63,32 @@
     width: 12%;
     height: 80%;
     background: $tertiary-background;
+    border-radius: 10px;
+}
+
+.plan-day-holder {
+    height: 15%;
+    width: 100%;
+    background: $secondary-background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid $primary-color;
+    h2 {
+        color: $primary-color;
+        font-size: 1.2rem;
+    }
+}
+
+.plan-day-info-holder {
+    height: 30%;
+    width: 100%;
+    background: $secondary-background;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
 }
 
 .plan-description-holder {

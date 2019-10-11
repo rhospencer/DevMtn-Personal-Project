@@ -64,7 +64,7 @@ class AddForm extends Component {
 
     componentDidMount() {
         if (!this.props.loggedIn) {
-            this.props.history.push('/')
+            this.props.history.push('/find_routes')
             Swal.fire({
                 type: 'warning',
                 text: 'Must be logged in to create route!',

@@ -96,5 +96,38 @@ module.exports = {
     const {plan_id} = req.params
     const deleted_plan = await db.delete_plan(plan_id)
     res.status(200).send({message: {text: 'Plan deleted!', type: 'success'}})
+  },
+
+  async editPlanRoute(req, res) {
+    const db = req.app.get('db')
+    const {plan_id, day_route, route_id} = req.params
+    switch (day_route) {
+      case 'm_route':
+        await db.edit_m_route([plan_id, route_id])
+        break
+      case 'tu_route':
+        await db.edit_tu_route([plan_id, route_id])
+        break
+      case 'w_route':
+        console.log('its wednesday my dudes')
+        await db.edit_w_route([plan_id, route_id])
+        break
+      case 'th_route':
+        await db.edit_th_route([plan_id, route_id])
+        break
+      case 'f_route':
+        await db.edit_f_route([plan_id, route_id])
+        break
+      case 'sa_route':
+        await db.edit_sa_route([plan_id, route_id])
+        break
+      case 'su_route':
+        await db.edit_su_route([plan_id, route_id])
+        break
+      default:
+        res.status(200).send({message: {text: 'Choose day to edit.', type: 'error'}})
+    }
+    
+    res.status(200).send({message: {text: 'Plan edited!', type: 'success'}})
   }
 };

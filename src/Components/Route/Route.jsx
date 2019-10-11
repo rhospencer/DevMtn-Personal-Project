@@ -294,7 +294,10 @@ class Route extends Component {
                                                         : this.state.fileName ? 
                                                             <p>{this.state.fileName}</p>
                                                         :
+                                                        <div className="drop-box">
+                                                            <h6>Route Image</h6>
                                                             <p>Drop File or Click Here</p>
+                                                        </div>
                                                         }
                                                         </div>
                                                     </div>

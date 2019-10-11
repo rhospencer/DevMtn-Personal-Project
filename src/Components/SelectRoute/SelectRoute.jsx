@@ -18,6 +18,7 @@ class SelectRoute extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props.match.params)
         if (!this.props.loggedIn) {
             this.props.history.push('/')
             Swal.fire({
@@ -50,7 +51,13 @@ class SelectRoute extends Component {
     }
 
     updateRoute(route_id) {
-        console.log(route_id)
+        axios.put(`/api/edit_plan_route/${+this.props.match.params.plan_id}/${this.props.match.params.day_route}/${route_id}`).then(res => {
+            this.props.history.push(`/plan/${+this.props.match.params.plan_id}`)
+            Swal.fire({
+                text: res.data.message.text,
+                type: res.data.message.type
+            })
+        })
     }
 
     render() {

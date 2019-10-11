@@ -43,6 +43,13 @@ class Plan extends Component {
             su_type: '',
             su_description: '',
             su_route: null,
+            mRouteInfo: null,
+            tuRouteInfo: null,
+            wRouteInfo: null,
+            thRouteInfo: null,
+            fRouteInfo: null,
+            saRouteInfo: null,
+            suRouteInfo: null
             
         }
     }
@@ -83,7 +90,43 @@ class Plan extends Component {
                 su_description: res.data[0].su_description,
                 su_route: res.data[0].su_route,
             })
+            if (res.data[0].m_route) {
+                axios.get(`/api/route/${res.data[0].m_route}`).then(res => {
+                this.setState({mRouteInfo: res.data})
+            })}
+            if (res.data[0].tu_route) {
+                axios.get(`/api/route/${res.data[0].tu_route}`).then(res => {
+                this.setState({tuRouteInfo: res.data})
+            })}
+            if (res.data[0].w_route) {
+                axios.get(`/api/route/${res.data[0].w_route}`).then(res => {
+                this.setState({wRouteInfo: res.data})
+            })}
+            if (res.data[0].th_route) {
+                axios.get(`/api/route/${res.data[0].th_route}`).then(res => {
+                this.setState({thRouteInfo: res.data})
+            })}
+            if (res.data[0].f_route) {
+                axios.get(`/api/route/${res.data[0].f_route}`).then(res => {
+                this.setState({fRouteInfo: res.data})
+            })}
+            if (res.data[0].sa_route) {
+                axios.get(`/api/route/${res.data[0].sa_route}`).then(res => {
+                this.setState({saRouteInfo: res.data})
+            })}
+            if (res.data[0].su_route) {
+                axios.get(`/api/route/${res.data[0].su_route}`).then(res => {
+                this.setState({suRouteInfo: res.data})
+            })}
         })
+    }
+
+    editRoute(day_route) {
+        this.props.history.push(`/select_route/${this.props.match.params.plan_id}/${day_route}`)
+    }
+
+    visitRoute(route_id) {
+        this.props.history.push(`/view_route/${route_id}/${this.props.match.params.plan_id}`)
     }
 
     deletePlan() {
@@ -118,7 +161,7 @@ class Plan extends Component {
                             Distance: {this.state.m_distance}
                             Run Type: {this.state.m_type}
                             Description: {this.state.m_description}
-                            <Link to={`/select_route/${this.props.match.params.plan_id}`}><h4>Route Info: {this.state.m_route}</h4></Link>
+                            <Link to={`/select_route/${this.props.match.params.plan_id}/m_route`}><h4>Route Info: {this.state.m_route}</h4></Link>
 
                         </div>
                         <div className="plan-day">
@@ -126,23 +169,39 @@ class Plan extends Component {
                             Distance: {this.state.tu_distance}
                             Run Type: {this.state.tu_type}
                             Description: {this.state.tu_description}
-                            <Link to={`/select_route/${this.props.match.params.plan_id}`}><h4>Route Info: {this.state.tu_route}</h4></Link>
+                            <Link to={`/select_route/${this.props.match.params.plan_id}/tu_route`}><h4>Route Info: {this.state.tu_route}</h4></Link>
 
                         </div>
                         <div className="plan-day">
-                            Wednesday
-                            Distance: {this.state.w_distance}
-                            Run Type: {this.state.w_type}
-                            Description: {this.state.w_description}
-                            <Link to={`/select_route/${this.props.match.params.plan_id}`}><h4>Route Info: {this.state.w_route}</h4></Link>
-
+                            <div className="plan-day-holder">
+                                <h2>Wednesday</h2>
+                            </div>
+                            <div className="plan-day-info-holder">
+                                {this.state.miles !== 0 ? 
+                                <p>{this.state.w_distance} Miles</p>
+                                :
+                                null
+                            }
+                                Run Type: {this.state.w_type}
+                            </div>
+                            <div className="plan-route-holder">
+                                {this.state.w_route !== null ? 
+                                    <h4 onClick={() => this.visitRoute(+this.state.w_route)}>Route Info: {this.state.w_route}</h4>
+                                :
+                                    <div className="no-route-info-holder">
+                                        Add Route
+                                    </div>
+                                }
+                                
+                                <button onClick={() => this.editRoute('w_route')}>Change Route</button>
+                            </div>
                         </div>
                         <div className="plan-day">
                             Thursday
                             Distance: {this.state.th_distance}
                             Run Type: {this.state.th_type}
                             Description: {this.state.th_description}
-                            <Link to={`/select_route/${this.props.match.params.plan_id}`}><h4>Route Info: {this.state.th_route}</h4></Link>
+                            <Link to={`/select_route/${this.props.match.params.plan_id}/th_route`}><h4>Route Info: {this.state.th_route}</h4></Link>
 
                         </div>
                         <div className="plan-day">
@@ -150,7 +209,7 @@ class Plan extends Component {
                             Distance: {this.state.f_distance}
                             Run Type: {this.state.f_type}
                             Description: {this.state.f_description}
-                            <Link to={`/select_route/${this.props.match.params.plan_id}`}><h4>Route Info: {this.state.f_route}</h4></Link>
+                            <Link to={`/select_route/${this.props.match.params.plan_id}/f_route`}><h4>Route Info: {this.state.f_route}</h4></Link>
 
                         </div>
                         <div className="plan-day">
@@ -158,7 +217,7 @@ class Plan extends Component {
                             Distance: {this.state.sa_distance}
                             Run Type: {this.state.sa_type}
                             Description: {this.state.sa_description}
-                            <Link to={`/select_route/${this.props.match.params.plan_id}`}><h4>Route Info: {this.state.sa_route}</h4></Link>
+                            <Link to={`/select_route/${this.props.match.params.plan_id}/sa_route`}><h4>Route Info: {this.state.sa_route}</h4></Link>
 
                         </div>
                         <div className="plan-day">
@@ -166,7 +225,7 @@ class Plan extends Component {
                             Distance: {this.state.su_distance}
                             Run Type: {this.state.su_type}
                             Description: {this.state.su_description}
-                            <Link to={`/select_route/${this.props.match.params.plan_id}`}><h4>Route Info: {this.state.su_route}</h4></Link>
+                            <Link to={`/select_route/${this.props.match.params.plan_id}/su_route`}><h4>Route Info: {this.state.su_route}</h4></Link>
 
                         </div>
                     </div>
