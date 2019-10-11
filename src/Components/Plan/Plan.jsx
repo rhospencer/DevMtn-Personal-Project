@@ -150,6 +150,18 @@ class Plan extends Component {
         this.setState({[key]: e.target.value})
     }
 
+    submitEdit() {
+        axios.put(`/api/edit_plan/${this.props.match.params.plan_id}`, this.state).then(res => {
+            this.setState({edit: false})
+            Swal.fire({
+                text: res.data.message.text,
+                type: res.data.message.type,
+                timer: 1500,
+                showCancelButton: false
+            })
+        })
+    }
+
     render() {
         return (
             <div className="plan-page">
@@ -172,12 +184,12 @@ class Plan extends Component {
                                 <h2>Monday</h2>
                             </div>
                             <div className="plan-day-info-holder">
-                                {this.state.m_distance !== 0 ? 
-                                <p>{this.state.m_distance} Miles</p>
+                                {this.state.m_distance !== '0.00'? 
+                                    <div><p>{this.state.m_distance} Miles</p>
+                                    <p>{this.state.m_type}</p></div>
                                 :
                                 <p>Rest Day</p>
                             }
-                                <p>{this.state.m_type}</p>
                             </div>
                             <div className="plan-route-holder">
                                 {this.state.mRouteInfo ? 
@@ -207,12 +219,12 @@ class Plan extends Component {
                                 <h2>Tuesday</h2>
                             </div>
                             <div className="plan-day-info-holder">
-                                {this.state.tu_distance !== 0 ? 
-                                <p>{this.state.tu_distance} Miles</p>
+                                {+this.state.tu_distance !== 0 ? 
+                                    <div><p>{this.state.tu_distance} Miles</p>
+                                    <p>{this.state.tu_type}</p></div>
                                 :
                                 <p>Rest Day</p>
                             }
-                                <p>{this.state.tu_type}</p>
                             </div>
                             <div className="plan-route-holder">
                                 {this.state.tuRouteInfo ? 
@@ -242,12 +254,12 @@ class Plan extends Component {
                                 <h2>Wednesday</h2>
                             </div>
                             <div className="plan-day-info-holder">
-                                {this.state.w_distance !== 0 ? 
-                                <p>{this.state.w_distance} Miles</p>
+                                {+this.state.w_distance !== 0 ? 
+                                    <div><p>{this.state.w_distance} Miles</p>
+                                    <p>{this.state.w_type}</p></div>
                                 :
                                 <p>Rest Day</p>
                             }
-                                <p>{this.state.w_type}</p>
                             </div>
                             <div className="plan-route-holder">
                                 {this.state.wRouteInfo ? 
@@ -277,12 +289,12 @@ class Plan extends Component {
                                 <h2>Thursday</h2>
                             </div>
                             <div className="plan-day-info-holder">
-                                {this.state.th_distance !== 0 ? 
-                                <p>{this.state.th_distance} Miles</p>
+                                {+this.state.th_distance !== 0 ? 
+                                <div><p>{this.state.th_distance} Miles</p>
+                                <p>{this.state.th_type}</p></div>
                                 :
                                 <p>Rest Day</p>
                             }
-                                <p>{this.state.th_type}</p>
                             </div>
                             <div className="plan-route-holder">
                                 {this.state.thRouteInfo ? 
@@ -312,12 +324,12 @@ class Plan extends Component {
                                 <h2>Friday</h2>
                             </div>
                             <div className="plan-day-info-holder">
-                                {this.state.f_distance !== 0 ? 
-                                <p>{this.state.f_distance} Miles</p>
+                                {+this.state.f_distance !== 0 ? 
+                                    <div><p>{this.state.f_distance} Miles</p>
+                                    <p>{this.state.f_type}</p></div>
                                 :
                                 <p>Rest Day</p>
                             }
-                                <p>{this.state.f_type}</p>
                             </div>
                             <div className="plan-route-holder">
                                 {this.state.fRouteInfo ? 
@@ -347,12 +359,12 @@ class Plan extends Component {
                                 <h2>Saturday</h2>
                             </div>
                             <div className="plan-day-info-holder">
-                                {this.state.sa_distance !== 0 ? 
-                                <p>{this.state.sa_distance} Miles</p>
+                                {+this.state.sa_distance !== 0 ? 
+                                    <div><p>{this.state.sa_distance} Miles</p>
+                                    <p>{this.state.sa_type}</p></div>
                                 :
                                 <p>Rest Day</p>
                             }
-                                <p>{this.state.sa_type}</p>
                             </div>
                             <div className="plan-route-holder">
                                 {this.state.saRouteInfo ? 
@@ -382,12 +394,12 @@ class Plan extends Component {
                                 <h2>Sunday</h2>
                             </div>
                             <div className="plan-day-info-holder">
-                                {this.state.su_distance !== 0 ? 
-                                <p>{this.state.su_distance} Miles</p>
+                                {+this.state.su_distance !== 0 ? 
+                                    <div><p>{this.state.su_distance} Miles</p>
+                                    <p>{this.state.su_type}</p></div>
                                 :
                                 <p>Rest Day</p>
                             }
-                                <p>{this.state.su_type}</p>
                             </div>
                             <div className="plan-route-holder">
                                 {this.state.suRouteInfo ? 
@@ -662,7 +674,7 @@ class Plan extends Component {
                     <input onChange={e => this.handleInputChange(e, 'week_focus')} placeholder="Week Description" value={this.state.week_focus} type="text"/>
                 </div>
                 <div className="plan-buttons-holder">
-                    <button onClick={() => this.handleEditToggle()}>Edit</button>
+                    <button onClick={() => this.submitEdit()}>Submit</button>
                 </div>
             
             </div>

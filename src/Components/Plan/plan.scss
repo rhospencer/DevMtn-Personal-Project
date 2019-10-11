@@ -3,7 +3,8 @@
 .plan-page {
     width: $page-width;
     height: 100vh;
-    background: $tertiary-background;
+    // background: $tertiary-background;
+    @include gradient-background;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,6 +18,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 20px;
+    @include box-shadow;
 }
 
 .plan-info-holder {
@@ -30,7 +33,7 @@
 .plan-date-holder {
     height: 100%;
     width: 50%;
-    background: red;
+    background: $secondary-background;;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -40,7 +43,7 @@
 .plan-total-miles-holder {
     height: 100%;
     width: 50%;
-    background: blue;
+    background: $secondary-background;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -53,10 +56,12 @@
 .plan-days-holder {
     height: 70%;
     width: 100%;
-    background: orange;
+    background: $tertiary-background;
+    // background: $secondary-color;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    // border: 2px solid $secondary-background;
 }
 
 .plan-day {
@@ -64,6 +69,7 @@
     height: 80%;
     background: $tertiary-background;
     border-radius: 10px;
+    @include box-shadow-less;
 }
 
 .plan-day-holder {

@@ -3,7 +3,8 @@
 .my-plans-page {
     width: $page-width;
     min-height: 100vh;
-    background: $tertiary-background;
+    // background: $tertiary-background;
+    @include gradient-background;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,5 +32,10 @@
     border-radius: 20px;
     background: $secondary-background;
     color: white;
+    @include box-shadow;
+    h2 {
+        color: $primary-color;
+        text-decoration: underline;
+    }
 }
 

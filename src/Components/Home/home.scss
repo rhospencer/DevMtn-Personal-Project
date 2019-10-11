@@ -104,7 +104,8 @@ section {
 .info {
     min-height: 80vh;
     min-width: $page-width;
-    background: $tertiary-background;
+    // background: $tertiary-background;
+    @include gradient-background;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -115,6 +116,7 @@ section {
     height: 60vh;
     background: $secondary-background;
     border-radius: 20px;
+    @include box-shadow;
     
 }
 .img-box-find-routes:hover .overlay {

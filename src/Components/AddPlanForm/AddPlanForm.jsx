@@ -71,31 +71,24 @@ class AddPlanForm extends Component {
                     <input onChange={e => this.handleChange(e, 'week_focus')} placeholder="Weekly Description" value={this.state.week_focus} type="text"/>
                     <input onChange={e => this.handleChange(e, 'm_distance')} placeholder="Monday Distance" value={this.state.m_distance} type="number"/>
                     <input onChange={e => this.handleChange(e, 'm_type')} placeholder="Monday Run Type" value={this.state.m_type} type="text"/>
-                    <input onChange={e => this.handleChange(e, 'm_description')} placeholder="Monday Run Description" value={this.state.m_description}type="text"/>
                     <input onChange={e => this.handleChange(e, 'm_route')} placeholder="Monday Route" value={this.state.m_route} type="number"/>
                     <input onChange={e => this.handleChange(e, 'tu_distance')} placeholder="Tuesday Distance" value={this.state.tu_distance} type="number"/>
                     <input onChange={e => this.handleChange(e, 'tu_type')} placeholder="Tuesday Run Type" value={this.state.tu_type} type="text"/>
-                    <input onChange={e => this.handleChange(e, 'tu_description')} placeholder="Tuesday Run Description" value={this.state.tu_description} type="text"/>
                     <input onChange={e => this.handleChange(e, 'tu_route')} placeholder="Tuesday Route" value={this.state.tu_route}type="number"/>
                     <input onChange={e => this.handleChange(e, 'w_distance')} placeholder="Wednesday Distance" value={this.state.w_distance} type="number"/>
                     <input onChange={e => this.handleChange(e, 'w_type')} placeholder="Wednesday Run Type" value={this.state.w_type}type="text"/>
-                    <input onChange={e => this.handleChange(e, 'w_description')} placeholder="Wednesday Run Description" value={this.state.w_description} type="text"/>
                     <input onChange={e => this.handleChange(e, 'w_route')} placeholder="Wednesday Route" value={this.state.route}type="number"/>
                     <input onChange={e => this.handleChange(e, 'th_distance')} placeholder="Thursday Distance" value={this.state.th_distance} type="number"/>
                     <input onChange={e => this.handleChange(e, 'th_type')} placeholder="Thursday Run Type" value={this.state.th_type} type="text"/>
-                    <input onChange={e => this.handleChange(e, 'th_description')} placeholder="Thursday Run Description" value={this.state.th_description} type="text"/>
                     <input onChange={e => this.handleChange(e, 'th_route')} placeholder="Thursday Route" value={this.state.th_route} type="number"/>
                     <input onChange={e => this.handleChange(e, 'f_distance')} placeholder="Friday Distance" value={this.state.f_distance} type="number"/>
                     <input onChange={e => this.handleChange(e, 'f_type')} placeholder="Friday Run Type" value={this.state.f_type} type="text"/>
-                    <input onChange={e => this.handleChange(e, 'f_description')} placeholder="Friday Run Description" value={this.state.f_description} type="text"/>
                     <input onChange={e => this.handleChange(e, 'f_route')} placeholder="Friday Route" value={this.state.f_route} type="number"/>
                     <input onChange={e => this.handleChange(e, 'sa_distance')} placeholder="Saturday Distance" value={this.state.sa_distance} type="number"/>
                     <input onChange={e => this.handleChange(e, 'sa_type')} placeholder="Saturday Run Type" value={this.state.sa_type} type="text"/>
-                    <input onChange={e => this.handleChange(e, 'sa_description')} placeholder="Saturday Run Description" value={this.state.sa_description} type="text"/>
                     <input onChange={e => this.handleChange(e, 'sa_route')} placeholder="Saturday Route" value={this.state.sa_route} type="number"/>
                     <input onChange={e => this.handleChange(e, 'su_distance')} placeholder="Sunday Distance" value={this.state.su_distance} type="number"/>
                     <input onChange={e => this.handleChange(e, 'su_type')} placeholder="Sunday Run Type" value={this.state.su_type} type="text"/>
-                    <input onChange={e => this.handleChange(e, 'su_description')} placeholder="Sunday Run Description" value={this.state.su_description} type="text"/>
                     <input onChange={e => this.handleChange(e, 'su_route')} placeholder="Sunday Route" value={this.state.su_route} type="number"/>
                     <button onClick={() => this.addPlan()}>Add Plan</button>
                 </div>

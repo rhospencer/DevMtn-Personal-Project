@@ -3,7 +3,8 @@
 .route-page {
     width: $page-width;
     height: 100vh;
-    background: $tertiary-background;
+    // background: $tertiary-background;
+    @include gradient-background;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,6 +24,7 @@
     text-align: center;
     padding-top: 20px;
     padding-bottom: 1px;
+    @include box-shadow;
     
 } 
 
@@ -119,8 +121,8 @@
 
 .description-holder {
     width: 900px;
-    padding-top: 30px;
-    margin-bottom: 20px;
+    padding-top: 10px;
+    margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;

@@ -38,7 +38,7 @@ export default class ExpandRoute extends Component {
 
     render() {
         return(
-            <div>
+            <div className='expand-route-holder'>
                 {console.log(this.props)}
                 {!this.state.moreInfo ? 
                     <div className="expand-route">

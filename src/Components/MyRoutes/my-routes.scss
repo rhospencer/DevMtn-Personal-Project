@@ -3,7 +3,8 @@
 .my-routes-page {
     width: $page-width;
     min-height: 100vh;
-    background: $tertiary-background;
+    // background: $tertiary-background;
+    @include gradient-background;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,6 +65,7 @@
     margin: 20px;
     border-radius: 20px;
     cursor: pointer;
+    @include box-shadow;
     img {
         width: 220px;
         height: auto;

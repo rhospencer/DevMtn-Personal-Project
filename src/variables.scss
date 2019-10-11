@@ -15,3 +15,18 @@ $page-width: 90vw;
     justify-content: flex-start;
     align-items: center;
 }
+
+@mixin gradient-background {
+    background: rgb(123,131,142);
+    background: linear-gradient(135deg, rgba(123,131,142,1) 0%, rgba(197,198,199,1) 50%, rgba(123,131,142,1) 100%);
+}
+
+@mixin box-shadow {
+    -webkit-box-shadow: 5px 5px 9px 3px #0b0c10; 
+    box-shadow: 5px 5px 9px 3px #0b0c10;
+}
+
+@mixin box-shadow-less {
+    -webkit-box-shadow: 3px 3px 9px 2px #0b0c1085; 
+    box-shadow: 3px 3px 9px 2px #0b0c1085;
+}
