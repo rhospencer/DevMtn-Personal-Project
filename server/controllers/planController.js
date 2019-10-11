@@ -129,5 +129,52 @@ module.exports = {
     }
     
     res.status(200).send({message: {text: 'Plan edited!', type: 'success'}})
+  },
+
+  async editPlan(req, res) {
+    const  db = req.app.get('db')
+    const {plan_id} = req.params
+    const {
+      start_date,
+      end_date,
+      m_distance,
+      m_type,
+      tu_distance,
+      tu_type,
+      w_distance,
+      w_type,
+      th_distance,
+      th_type,
+      f_distance,
+      f_type,
+      sa_distance,
+      sa_type,
+      su_distance,
+      su_type,
+      week_focus
+    } = req.body
+
+    await db.edit_plan([
+      plan_id,
+      start_date,
+      end_date,
+      m_distance,
+      m_type,
+      tu_distance,
+      tu_type,
+      w_distance,
+      w_type,
+      th_distance,
+      th_type,
+      f_distance,
+      f_type,
+      sa_distance,
+      sa_type,
+      su_distance,
+      su_type,
+      week_focus
+    ])
+
+    res.status(200).send({message: {text: 'Plan edited!', type: 'success'}})
   }
 };
