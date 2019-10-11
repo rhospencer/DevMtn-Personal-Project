@@ -157,76 +157,249 @@ class Plan extends Component {
                     </div>
                     <div className="plan-days-holder">
                         <div className="plan-day">
-                            Monday
-                            Distance: {this.state.m_distance}
-                            Run Type: {this.state.m_type}
-                            Description: {this.state.m_description}
-                            <Link to={`/select_route/${this.props.match.params.plan_id}/m_route`}><h4>Route Info: {this.state.m_route}</h4></Link>
-
+                            <div className="plan-day-holder">
+                                <h2>Monday</h2>
+                            </div>
+                            <div className="plan-day-info-holder">
+                                {this.state.m_distance !== 0 ? 
+                                <p>{this.state.m_distance} Miles</p>
+                                :
+                                <p>Rest Day</p>
+                            }
+                                <p>{this.state.m_type}</p>
+                            </div>
+                            <div className="plan-route-holder">
+                                {this.state.mRouteInfo ? 
+                                    <div className="day-route-info-holder">
+                                        <h1>{this.state.mRouteInfo.title}</h1>
+                                        <h4>{this.state.mRouteInfo.distance} Miles</h4>
+                                        <img src={this.state.mRouteInfo.route_img} alt="Route Image" onClick={() => this.visitRoute(+this.state.m_route)}/>
+                                    </div>
+                                :
+                                    <div className="no-day-route-info-holder">
+                                    <div className="add-day-route-box" onClick={() => this.editRoute('m_route')}>
+                                        <i class="fas fa-plus fa-2x"></i>
+                                    </div>
+                                </div>
+                            }
+                            <div className="day-route-edit-button-holder">
+                                {this.state.mRouteInfo ?
+                                    <button onClick={() => this.editRoute('m_route')}>Change Route</button>
+                                :
+                                    null
+                            }
+                            </div>
+                            </div>
                         </div>
                         <div className="plan-day">
-                            Tuesday
-                            Distance: {this.state.tu_distance}
-                            Run Type: {this.state.tu_type}
-                            Description: {this.state.tu_description}
-                            <Link to={`/select_route/${this.props.match.params.plan_id}/tu_route`}><h4>Route Info: {this.state.tu_route}</h4></Link>
-
+                            <div className="plan-day-holder">
+                                <h2>Tuesday</h2>
+                            </div>
+                            <div className="plan-day-info-holder">
+                                {this.state.tu_distance !== 0 ? 
+                                <p>{this.state.tu_distance} Miles</p>
+                                :
+                                <p>Rest Day</p>
+                            }
+                                <p>{this.state.tu_type}</p>
+                            </div>
+                            <div className="plan-route-holder">
+                                {this.state.tuRouteInfo ? 
+                                    <div className="day-route-info-holder">
+                                        <h1>{this.state.tuRouteInfo.title}</h1>
+                                        <h4>{this.state.tuRouteInfo.distance} Miles</h4>
+                                        <img src={this.state.tuRouteInfo.route_img} alt="Route Image" onClick={() => this.visitRoute(+this.state.tu_route)}/>
+                                    </div>
+                                :
+                                    <div className="no-day-route-info-holder">
+                                        <div className="add-day-route-box" onClick={() => this.editRoute('tu_route')}>
+                                            <i class="fas fa-plus fa-2x"></i>
+                                        </div>
+                                    </div>
+                                }
+                                <div className="day-route-edit-button-holder">
+                                    {this.state.tuRouteInfo ? 
+                                        <button onClick={() => this.editRoute('tu_route')}>Change Route</button>
+                                    :
+                                        null
+                                }
+                                </div>
+                            </div>
                         </div>
                         <div className="plan-day">
                             <div className="plan-day-holder">
                                 <h2>Wednesday</h2>
                             </div>
                             <div className="plan-day-info-holder">
-                                {this.state.miles !== 0 ? 
+                                {this.state.w_distance !== 0 ? 
                                 <p>{this.state.w_distance} Miles</p>
                                 :
-                                null
+                                <p>Rest Day</p>
                             }
-                                Run Type: {this.state.w_type}
+                                <p>{this.state.w_type}</p>
                             </div>
                             <div className="plan-route-holder">
-                                {this.state.w_route !== null ? 
-                                    <h4 onClick={() => this.visitRoute(+this.state.w_route)}>Route Info: {this.state.w_route}</h4>
+                                {this.state.wRouteInfo ? 
+                                    <div className="day-route-info-holder">
+                                        <h1>{this.state.wRouteInfo.title}</h1>
+                                        <h4>{this.state.wRouteInfo.distance} Miles</h4>
+                                        <img src={this.state.wRouteInfo.route_img} alt="Route Image" onClick={() => this.visitRoute(+this.state.w_route)}/>
+                                    </div>
                                 :
-                                    <div className="no-route-info-holder">
-                                        Add Route
+                                    <div className="no-day-route-info-holder">
+                                        <div className="add-day-route-box" onClick={() => this.editRoute('w_route')}>
+                                            <i class="fas fa-plus fa-2x"></i>
+                                        </div>
                                     </div>
                                 }
-                                
-                                <button onClick={() => this.editRoute('w_route')}>Change Route</button>
+                                <div className="day-route-edit-button-holder">
+                                    {this.state.wRouteInfo ?
+                                        <button onClick={() => this.editRoute('w_route')}>Change Route</button>
+                                    :
+                                        null
+                                }
+                                </div>
                             </div>
                         </div>
                         <div className="plan-day">
-                            Thursday
-                            Distance: {this.state.th_distance}
-                            Run Type: {this.state.th_type}
-                            Description: {this.state.th_description}
-                            <Link to={`/select_route/${this.props.match.params.plan_id}/th_route`}><h4>Route Info: {this.state.th_route}</h4></Link>
-
+                            <div className="plan-day-holder">
+                                <h2>Thursday</h2>
+                            </div>
+                            <div className="plan-day-info-holder">
+                                {this.state.th_distance !== 0 ? 
+                                <p>{this.state.th_distance} Miles</p>
+                                :
+                                <p>Rest Day</p>
+                            }
+                                <p>{this.state.th_type}</p>
+                            </div>
+                            <div className="plan-route-holder">
+                                {this.state.thRouteInfo ? 
+                                    <div className="day-route-info-holder">
+                                        <h1>{this.state.thRouteInfo.title}</h1>
+                                        <h4>{this.state.thRouteInfo.distance} Miles</h4>
+                                        <img src={this.state.thRouteInfo.route_img} alt="Route Image" onClick={() => this.visitRoute(+this.state.th_route)}/>
+                                    </div>
+                                :
+                                    <div className="no-day-route-info-holder">
+                                    <div className="add-day-route-box" onClick={() => this.editRoute('th_route')}>
+                                        <i class="fas fa-plus fa-2x"></i>
+                                    </div>
+                                </div>
+                            }
+                            <div className="day-route-edit-button-holder">
+                                {this.state.thRouteInfo ?
+                                    <button onClick={() => this.editRoute('th_route')}>Change Route</button>
+                                :
+                                    null
+                            }
+                            </div>
+                            </div>
                         </div>
                         <div className="plan-day">
-                            Friday
-                            Distance: {this.state.f_distance}
-                            Run Type: {this.state.f_type}
-                            Description: {this.state.f_description}
-                            <Link to={`/select_route/${this.props.match.params.plan_id}/f_route`}><h4>Route Info: {this.state.f_route}</h4></Link>
-
+                            <div className="plan-day-holder">
+                                <h2>Friday</h2>
+                            </div>
+                            <div className="plan-day-info-holder">
+                                {this.state.f_distance !== 0 ? 
+                                <p>{this.state.f_distance} Miles</p>
+                                :
+                                <p>Rest Day</p>
+                            }
+                                <p>{this.state.f_type}</p>
+                            </div>
+                            <div className="plan-route-holder">
+                                {this.state.fRouteInfo ? 
+                                    <div className="day-route-info-holder">
+                                        <h1>{this.state.fRouteInfo.title}</h1>
+                                        <h4>{this.state.fRouteInfo.distance} Miles</h4>
+                                        <img src={this.state.fRouteInfo.route_img} alt="Route Image" onClick={() => this.visitRoute(+this.state.f_route)}/>
+                                    </div>
+                                :
+                                    <div className="no-day-route-info-holder">
+                                    <div className="add-day-route-box" onClick={() => this.editRoute('f_route')}>
+                                        <i class="fas fa-plus fa-2x"></i>
+                                    </div>
+                                </div>
+                            }
+                            <div className="day-route-edit-button-holder">
+                                {this.state.fRouteInfo ?
+                                    <button onClick={() => this.editRoute('f_route')}>Change Route</button>
+                                :
+                                    null
+                            }
+                            </div>
+                            </div>
                         </div>
                         <div className="plan-day">
-                            Saturday
-                            Distance: {this.state.sa_distance}
-                            Run Type: {this.state.sa_type}
-                            Description: {this.state.sa_description}
-                            <Link to={`/select_route/${this.props.match.params.plan_id}/sa_route`}><h4>Route Info: {this.state.sa_route}</h4></Link>
-
+                            <div className="plan-day-holder">
+                                <h2>Saturday</h2>
+                            </div>
+                            <div className="plan-day-info-holder">
+                                {this.state.sa_distance !== 0 ? 
+                                <p>{this.state.sa_distance} Miles</p>
+                                :
+                                <p>Rest Day</p>
+                            }
+                                <p>{this.state.sa_type}</p>
+                            </div>
+                            <div className="plan-route-holder">
+                                {this.state.saRouteInfo ? 
+                                    <div className="day-route-info-holder">
+                                        <h1>{this.state.saRouteInfo.title}</h1>
+                                        <h4>{this.state.saRouteInfo.distance} Miles</h4>
+                                        <img src={this.state.saRouteInfo.route_img} alt="Route Image" onClick={() => this.visitRoute(+this.state.sa_route)}/>
+                                    </div>
+                                :
+                                    <div className="no-day-route-info-holder">
+                                    <div className="add-day-route-box" onClick={() => this.editRoute('sa_route')}>
+                                        <i class="fas fa-plus fa-2x"></i>
+                                    </div>
+                                </div>
+                            }
+                            <div className="day-route-edit-button-holder">
+                                {this.state.saRouteInfo ?
+                                    <button onClick={() => this.editRoute('sa_route')}>Change Route</button>
+                                :
+                                    null
+                            }
+                            </div>
+                            </div>
                         </div>
                         <div className="plan-day">
-                            Sunday
-                            Distance: {this.state.su_distance}
-                            Run Type: {this.state.su_type}
-                            Description: {this.state.su_description}
-                            <Link to={`/select_route/${this.props.match.params.plan_id}/su_route`}><h4>Route Info: {this.state.su_route}</h4></Link>
-
+                            <div className="plan-day-holder">
+                                <h2>Sunday</h2>
+                            </div>
+                            <div className="plan-day-info-holder">
+                                {this.state.su_distance !== 0 ? 
+                                <p>{this.state.su_distance} Miles</p>
+                                :
+                                <p>Rest Day</p>
+                            }
+                                <p>{this.state.su_type}</p>
+                            </div>
+                            <div className="plan-route-holder">
+                                {this.state.suRouteInfo ? 
+                                    <div className="day-route-info-holder">
+                                        <h1>{this.state.suRouteInfo.title}</h1>
+                                        <h4>{this.state.suRouteInfo.distance} Miles</h4>
+                                        <img src={this.state.suRouteInfo.route_img} alt="Route Image" onClick={() => this.visitRoute(+this.state.su_route)}/>
+                                    </div>
+                                :
+                                    <div className="no-day-route-info-holder">
+                                    <div className="add-day-route-box" onClick={() => this.editRoute('su_route')}>
+                                        <i class="fas fa-plus fa-2x"></i>
+                                    </div>
+                                </div>
+                            }
+                            <div className="day-route-edit-button-holder">
+                                {this.state.suRouteInfo ?
+                                    <button onClick={() => this.editRoute('su_route')}>Change Route</button>
+                                :
+                                    null
+                            }
+                            </div>
+                            </div>
                         </div>
                     </div>
                     <div className="plan-description-holder">
