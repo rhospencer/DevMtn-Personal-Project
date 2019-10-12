@@ -48,7 +48,11 @@ class MyPlans extends Component {
                     Weekly Description: {el.week_focus}
                 </div>
                 <div className="my-plan-button-holder">
-                    <Link to={`/plan/${el.plan_id}`}><button>View Full Plan</button></Link>
+                    <Link to={`/plan/${el.plan_id}`}>
+                        <div className="my-button-login">
+                            View Full Plan
+                        </div>
+                    </Link>
                 </div>
 
             </div>

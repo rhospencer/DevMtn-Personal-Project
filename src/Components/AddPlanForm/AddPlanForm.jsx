@@ -231,8 +231,8 @@ class AddPlanForm extends Component {
                                 <textarea onChange={e => this.handleChange(e, 'week_focus')} id="" cols="80" rows="2"></textarea>
                             </div>
                             <div className="plan-buttons-holder">
-                                <button onClick={() => this.cancelAddForm()}>Cancel</button>
-                                <button onClick={() => this.addPlan()}>Add Plan</button>
+                                <div className="my-button-change-route" onClick={() => this.cancelAddForm()}>Cancel</div>
+                                <div className="my-button-change-route" onClick={() => this.addPlan()}>Add Plan</div>
                                 
                             </div>                        
                     </div>
