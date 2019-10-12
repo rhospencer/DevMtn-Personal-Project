@@ -38,6 +38,22 @@
     justify-content: flex-start;
     align-items: center;
     padding-left: 40px;
+    input[type=text] {
+        border: 2px solid $primary-color;
+        border-radius: 4px;
+        background: $secondary-background;
+        color: white;
+        padding: 2px 8px;
+        transition: padding .15s ease-in, border .15s ease-in;
+        &:focus {
+            padding: 4px 10px;
+            outline: none;
+            border: 2px solid $secondary-color;
+        } 
+    }
+    h2 {
+        color: $primary-color;
+    }
 }
 
 .plan-total-miles-holder {
@@ -50,6 +66,9 @@
     padding-right: 40px;
     button {
         margin-left: 20px;
+    }
+    h2 {
+        color: $primary-color;
     }
 }
 
@@ -87,21 +106,49 @@
 }
 
 .plan-day-info-holder {
-    height: 20%;
+    height: 25%;
     width: 100%;
     background: $secondary-background;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     p {
         font-size: 1rem;
     }
+    input[type=text] {
+        border: 2px solid $primary-color;
+        border-radius: 4px;
+        background: $secondary-background;
+        color: white;
+        padding: 2px 8px;
+        width: 80%;
+        transition: padding .15s ease-in, border .15s ease-in;
+        &:focus {
+            padding: 4px 10px;
+            outline: none;
+            border: 2px solid $secondary-color;
+        } 
+    }
+    input[type=number] {
+        border: 2px solid $primary-color;
+        border-radius: 4px;
+        background: $secondary-background;
+        color: white;
+        padding: 2px 8px;
+        width: 80%;
+        transition: padding .15s ease-in, border .15s ease-in;
+        &:focus {
+            padding: 4px 10px;
+            outline: none;
+            border: 2px solid $secondary-color;
+        } 
+    }
 }
 
 .plan-route-holder {
-    height: 65%;
+    height: 60%;
     width: 100%;
     background: $secondary-background;
     display: flex;
@@ -154,10 +201,22 @@
     justify-content: center;
     align-items: center;
     background: $tertiary-background;
+    border-radius: 6px;
+    border: 2px solid $primary-color;
+    transition: border .15s ease-in;
     cursor: pointer;
     i {
         color: $primary-color;
+        transition: color .15s ease-in;
     }
+    &:hover {
+        border: 3px solid $secondary-color;
+        i {
+            color: $secondary-color;
+        }
+
+    }
+
 }
 
 .day-route-edit-button-holder {
@@ -177,6 +236,19 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    textarea {
+        text-align: center;
+        border: 2px solid $primary-color;
+        border-radius: 4px;
+        background: $secondary-background;
+        transition: padding .15s ease-in, border .15s ease-in;
+        color: white;
+        &:focus {
+            padding: 4px 10px;
+            outline: none;
+            border: 2px solid $secondary-color;
+        } 
+    }
 }
 
 .plan-buttons-holder {

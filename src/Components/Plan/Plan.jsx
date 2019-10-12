@@ -56,6 +56,10 @@ class Plan extends Component {
     }
 
     componentDidMount() {
+        this.getPlan()
+    }
+
+    getPlan() {
         axios.get(`/api/plan/${+this.props.match.params.plan_id}`).then(res => {
             this.setState({
                 plan: res.data,
@@ -162,6 +166,13 @@ class Plan extends Component {
         })
     }
 
+    cancelEdit() {
+        this.getPlan()
+        this.setState({
+            edit: false
+        })
+    }
+
     render() {
         return (
             <div className="plan-page">
@@ -174,7 +185,9 @@ class Plan extends Component {
                             <h2>{this.state.start_date} - {this.state.end_date}</h2>
                         </div>
                         <div className="plan-total-miles-holder">
-                            Total Miles: {+this.state.m_distance + +this.state.tu_distance + +this.state.w_distance + +this.state.th_distance + +this.state.f_distance + +this.state.sa_distance + +this.state.su_distance}
+                            <h2>
+                                Total Miles: {+this.state.m_distance + +this.state.tu_distance + +this.state.w_distance + +this.state.th_distance + +this.state.f_distance + +this.state.sa_distance + +this.state.su_distance}
+                            </h2>
                             <Link to={'/my_plans'}><button>X</button></Link>
                         </div>
                     </div>
@@ -446,7 +459,9 @@ class Plan extends Component {
                         <h2><input onChange={e => this.handleInputChange(e, 'start_date')} placeholder="Start Date" value={this.state.start_date} type="text"/> - <input onChange={e => this.handleInputChange(e, 'end_date')} placeholder="End Date" value={this.state.end_date} type="text"/></h2>
                     </div>
                     <div className="plan-total-miles-holder">
-                        Total Miles: {+this.state.m_distance + +this.state.tu_distance + +this.state.w_distance + +this.state.th_distance + +this.state.f_distance + +this.state.sa_distance + +this.state.su_distance}
+                        <h2>
+                            Total Miles: {+this.state.m_distance + +this.state.tu_distance + +this.state.w_distance + +this.state.th_distance + +this.state.f_distance + +this.state.sa_distance + +this.state.su_distance}
+                        </h2>
                         <Link to={'/my_plans'}><button>X</button></Link>
                     </div>
                 </div>
@@ -671,9 +686,11 @@ class Plan extends Component {
                 </div>
                 <div className="plan-description-holder">
                     Description: 
-                    <input onChange={e => this.handleInputChange(e, 'week_focus')} placeholder="Week Description" value={this.state.week_focus} type="text"/>
+                    {/* <input onChange={e => this.handleInputChange(e, 'week_focus')} placeholder="Week Description" value={this.state.week_focus} type="text"/> */}
+                    <textarea onChange={e => this.handleInputChange(e, 'week_focus')} cols="80" rows="2" value={this.state.week_focus}></textarea>
                 </div>
                 <div className="plan-buttons-holder">
+                    <button onClick={() => this.cancelEdit()}>Cancel</button>
                     <button onClick={() => this.submitEdit()}>Submit</button>
                 </div>
             
