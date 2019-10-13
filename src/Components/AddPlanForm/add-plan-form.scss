@@ -79,4 +79,37 @@
             font-size: .8rem;
         }
     }
+
+}
+        
+@media(max-width: 425px) {
+    .add-plan-form-page{
+        width: 100vw;
+        height: 340vh;
+        margin-top: 10vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+    }
+
+    .plan-date-holder {
+        justify-content: center;
+        padding-left: 5px;
+        input {
+            width: 100px;
+        }
+    }
+
+    .add-plan-form-holder {
+        height: 330vh;
+        // margin-bottom: 10vh;
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+
+    .plan-holder {
+
+
+    }
 }

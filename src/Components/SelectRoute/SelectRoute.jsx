@@ -60,6 +60,10 @@ class SelectRoute extends Component {
         })
     }
 
+    cancelButton() {
+        this.props.history.push(`/plan/${this.props.match.params.plan_id}`)
+    }
+
     render() {
         const route = this.state.routes.map(el => {
             return <div className="my-route-select" key={el.route_id} onClick={() => this.updateRoute(el.route_id)}>
@@ -96,6 +100,9 @@ class SelectRoute extends Component {
                             Reset Search
                     </div>
                 </div>
+                </div>
+                <div className="cancel-select-route-button">
+                    <div onClick={() => this.cancelButton()} className="my-button-get-routes">Cancel</div>
                 </div>
                 <div className="my-routes-holder">
                     {route}

@@ -243,6 +243,11 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    text-align: center;
+    h4 {
+        color: $primary-color;
+        text-decoration: underline;
+    }
     textarea {
         text-align: center;
         border: 2px solid $primary-color;
@@ -279,5 +284,131 @@
     text-decoration:none;
     &:hover {
         background: $secondary-color;
+    }
+}
+
+@media(min-width: 425px) and (max-width: 768px) {
+    .plan-date-holder {
+        h2 {
+            font-size: 1rem;
+        }
+    }
+
+    .plan-total-miles-holder {
+        h2 {
+            font-size: 1rem;
+        }
+        i {
+            font-size: 1.2rem;
+        }
+    }
+
+    .plan-day-holder {
+        h2 {
+            font-size: .8rem;
+        }
+        
+    }
+
+    .plan-day-info-holder {
+        p {
+            font-size: .6rem;
+        }
+    }
+
+    .day-route-edit-button-holder {
+        div {
+            height: 80%;
+            width: 80%;
+            font-size: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+        }
+    }
+
+    .plan-description-holder {
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 425px) {
+    .plan-page {
+        width: 100vw;
+        margin-top: 10vh;
+        height: 320vh;
+    }
+
+    .plan-holder {
+        height: 300vh;
+    }
+
+    .plan-days-holder {
+        height: 84%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .plan-info-holder {
+        height: 5%;
+    }
+
+    .plan-date-holder {
+        width: 60%;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+        padding-left: 5px;
+        input {
+            width: 75px;
+        }
+        h2 {
+            font-size: .9rem;
+        }
+    }
+
+    .plan-total-miles-holder {
+        width: 40%;
+        padding-right: 10px;
+        h2 {
+            font-size: .8rem;
+            text-align: center;
+            margin-right: 10px;
+        }
+        i {
+            font-size: .9rem;
+        }
+    }
+
+    .plan-day {
+        width: 70%;
+        height: 13%;
+        overflow-y: hidden;
+
+    }
+
+    .plan-day-info-holder {
+        height: 15%;
+        p {
+            font-size: .7rem;
+        }
+    }
+
+    .plan-route-holder {
+        height: 75%;
+        justify-content: center;
+        img {
+            width: 60%;
+            height: auto;
+        }
+    }
+
+    .day-route-info-holder {
+        height: 70%;
+    }
+
+    .plan-description-holder {
+        height: 5%;
     }
 }

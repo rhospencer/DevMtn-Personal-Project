@@ -16,7 +16,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-content: flex-start;
     padding: 40px 100px;
 }
@@ -28,7 +28,7 @@
     text-align: center;
     height: 280px;
     width: 280px;
-    margin: 0 20px;
+    margin: 20px;
     border-radius: 20px;
     background: $secondary-background;
     color: white;
@@ -36,6 +36,32 @@
     h2 {
         color: $primary-color;
         text-decoration: underline;
+    }
+}
+
+@media(min-width: 425px) and (max-width: 768px) {
+    .my-plan {
+        width: 30vw;
+    }
+
+    .my-plans-holder {
+        padding: 20px;
+    }
+}
+
+@media(max-width: 425px) {
+    .my-plans-page {
+        width: 100vw;
+        margin-top: 10vh;
+    }
+
+    .my-plans-holder {
+        width: 90vw;
+        padding: 20px;
+    }
+
+    .my-plan {
+        width: 80vw;
     }
 }
 
