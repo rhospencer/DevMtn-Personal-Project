@@ -35,9 +35,15 @@ class Login extends Component {
         // alert(res.data.message)
     }
 
+    loginKeyEnter = (e) => {
+        if (e.key === 'Enter') {
+            this.login()
+        }
+    }
+
     render() {
         return(
-            <div className="login">
+            <div className="login" onKeyDown={this.loginKeyEnter}>
                 <input onChange={e => this.handleChange(e, 'username')} placeholder="Username" type="text"/>
                 <input onChange={e => this.handleChange(e, 'password')} placeholder="Password" type="password"/>
                 {/* <button onClick={this.login}>Login</button> */}
