@@ -67,6 +67,7 @@ class Home extends Component {
     }
 
     register = async () => {
+        console.log('test')
         const {username, password1, password2, city, state, zip, profile_pic} = this.state
         if (password1 === password2) {
             const res = await axios.post('/auth/register', {username, password: password2, city, state, zip, profile_pic})
@@ -217,10 +218,10 @@ class Home extends Component {
                                     )}
                             </Dropzone>
                             <div className="register-buttons">
-                                <div className="my-button-login">
+                                <div className="my-button-login" onClick={this.cancelInputs}>
                                     Clear
                                 </div>
-                                <div className="my-button-login">
+                                <div className="my-button-login" onClick={this.register}>
                                     Register
                                 </div>
                                 {/* <button onClick={this.register}>Register</button>
