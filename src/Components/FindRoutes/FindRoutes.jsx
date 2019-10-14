@@ -18,6 +18,7 @@ class FindRoutes extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props.loggedIn)
         this.getPosts()
     }
 

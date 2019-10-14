@@ -27,6 +27,10 @@ class Home extends Component {
         }
     }
 
+    componentDidMount() {
+        console.log(this.props.loggedIn)
+    }
+
     getSignedRequest = ([file]) => {
         this.setState({isUploading: true, fileName: file.name})
         const fileName = `${randomString()}-${file.name.replace(/\s/g, '-')}`

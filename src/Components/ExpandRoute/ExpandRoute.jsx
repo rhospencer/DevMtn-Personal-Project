@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import {connect} from 'react-redux'
 import './expand-route.scss'
 
-export default class ExpandRoute extends Component {
+class ExpandRoute extends Component {
     constructor(props) {
         super(props)
 
@@ -17,6 +18,7 @@ export default class ExpandRoute extends Component {
     }
 
     saveRoute(route_id) {
+        console.log(this.props.loggedIn)
         if (!this.props.loggedIn) {
             return Swal.fire({
                 text: 'Must be logged in to save route!',
@@ -39,7 +41,6 @@ export default class ExpandRoute extends Component {
     render() {
         return(
             <div className='expand-route-holder'>
-                {console.log(this.props)}
                 {!this.state.moreInfo ? 
                     <div className="expand-route">
                         <div className="route" key={this.props.data.route_id}>
@@ -119,3 +120,10 @@ export default class ExpandRoute extends Component {
         )
     }
 }
+
+function mapStateToProps(reduxState) {
+    const {user, loggedIn} = reduxState
+    return {user, loggedIn}
+}
+
+export default connect(mapStateToProps)(ExpandRoute)

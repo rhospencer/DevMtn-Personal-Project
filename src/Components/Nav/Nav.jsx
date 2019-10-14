@@ -69,7 +69,6 @@ class Nav extends Component {
                         this.props.user && this.props.user.profile_pic ?
                         <div className="nav-element">
                             <img src={this.props.user.profile_pic} alt="Profile Picture"/>
-                            My Profile
                         </div>
                         :
                         <img src="https://i0.wp.com/acaweb.org/wp-content/uploads/2018/12/profile-placeholder.png?fit=300%2C300&ssl=1" alt="Default Profile Picture"/>
