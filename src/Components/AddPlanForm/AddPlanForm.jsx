@@ -123,7 +123,7 @@ class AddPlanForm extends Component {
                                     <input onChange={e => this.handleChange(e, 'end_date')} placeholder="End Date" value={this.state.end_date} type="text"/>
                                 </div>
                                 <div className="plan-total-miles-holder">
-                                    <h2>Total Miles: {+this.state.m_distance + +this.state.tu_distance + +this.state.w_distance + +this.state.th_distance + +this.state.f_distance + +this.state.sa_distance + +this.state.su_distance}</h2>
+                                    <h2>Total Miles: &nbsp;{+this.state.m_distance + +this.state.tu_distance + +this.state.w_distance + +this.state.th_distance + +this.state.f_distance + +this.state.sa_distance + +this.state.su_distance}</h2>
                                 </div>
                             </div>
                             <div className="plan-days-holder">
@@ -241,8 +241,12 @@ class AddPlanForm extends Component {
                                 <textarea onChange={e => this.handleChange(e, 'week_focus')} id="" cols="80" rows="2"></textarea>
                             </div>
                             <div className="plan-buttons-holder">
-                                <div className="my-button-change-route" onClick={() => this.cancelAddForm()}>Cancel</div>
-                                <div className="my-button-change-route" onClick={() => this.addPlan()}>Add Plan</div>
+                                <div className="my-button-change-route" onClick={() => this.cancelAddForm()}><p>
+                                    Cancel
+                                </p></div>
+                                <div className="my-button-change-route" onClick={() => this.addPlan()}><p>
+                                    Add Plan
+                                </p></div>
                                 
                             </div>                        
                     </div>

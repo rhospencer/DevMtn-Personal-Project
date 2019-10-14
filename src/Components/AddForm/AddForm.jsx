@@ -212,10 +212,14 @@ class AddForm extends Component {
                             </div>
                             <div className="add-form-button-holder">
                                 <div onClick={this.clearInputs} className="my-button-login">
-                                    Cancel
+                                    <p>
+                                        Cancel
+                                    </p>
                                 </div>
                                 <div onClick={() => this.addRoute()} className="my-button-login">
-                                    Submit
+                                    <p>
+                                        Submit
+                                    </p>
                                 </div>
                             </div>
                         </div>

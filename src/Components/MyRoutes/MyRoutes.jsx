@@ -72,14 +72,14 @@ class MyRoutes extends Component {
                 </div>
                 <div className="search-holder">
                     <div className="search">
-                        <input onChange={e => this.handleChange(e, 'city')} placeholder="City" type="text"/>
+                        <input onChange={e => this.handleChange(e, 'city')} value={this.state.city} placeholder="City" type="text"/>
                         <div className="distance-holder">
                             <input value={this.state.distance} onChange={e => this.handleChange(e, 'distance')} placeholder="Distance" type="number"/>
                             <input value={this.state.distance} onChange={e => this.handleChange(e, 'distance')} placeholder="Distance" type="range" min="0" max="50"/>
                         </div>
                         <div className="check-box-holder">
                             Created By User: 
-                            <input onChange={() => this.handleCheckBoxChange()} checked={this.state.userRoutes} type="checkbox"/>
+                            <input onChange={() => this.handleCheckBoxChange()} checked={this.state.userRoutes} value={this.state.userRoutes} type="checkbox"/>
                         </div>
                 {/* <button onClick={() => this.getPosts()}>Get Routes!</button> */}
                     <div onClick={() => this.getPosts()} className="my-button-get-routes">

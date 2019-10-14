@@ -223,10 +223,14 @@ class Home extends Component {
                             </Dropzone>
                             <div className="register-buttons">
                                 <div className="my-button-login" onClick={this.cancelInputs}>
-                                    Clear
+                                    <p>
+                                        Clear
+                                    </p>
                                 </div>
                                 <div className="my-button-login" onClick={this.register}>
-                                    Register
+                                    <p>
+                                        Register
+                                    </p>
                                 </div>
                                 {/* <button onClick={this.register}>Register</button>
                                 <button onClick={this.cancelInputs}>Clear</button> */}

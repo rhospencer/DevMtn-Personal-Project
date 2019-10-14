@@ -59,7 +59,7 @@ class ViewRoute extends Component {
                                 <h3>Created By {this.state.route.username}</h3>
                             </div>
                             <div className="cancel-button-holder">
-                                <i class="fas fa-window-close fa-3x" onClick={() => this.goBack()}></i>
+                                <i class="fas fa-times fa-2x" onClick={() => this.goBack()}></i>
                             </div>
                         </div>
                         <div className="route-info-holder">

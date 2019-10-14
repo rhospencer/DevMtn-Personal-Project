@@ -55,7 +55,9 @@ class MyPlans extends Component {
                 <div className="my-plan-button-holder">
                     <Link to={`/plan/${el.plan_id}`}>
                         <div className="my-button-login">
-                            View Full Plan
+                            <p>
+                                View Full Plan
+                            </p>
                         </div>
                     </Link>
                 </div>
@@ -71,7 +73,9 @@ class MyPlans extends Component {
                     <Link to={'/add_plan'}>
                         {/* <button>Add New Route</button> */}
                         <div className="my-button-get-routes">
-                            Add Plan
+                            <p>
+                                Add Plan
+                            </p>
                         </div>
                         </Link>
                 </div>

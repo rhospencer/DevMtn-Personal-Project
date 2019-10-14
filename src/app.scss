@@ -29,6 +29,10 @@
   margin-left: $nav-width;
 }
 
+::placeholder {
+  color: white;
+}
+
 @media (max-width: 425px) {
   .App {
     display: flex;
@@ -41,4 +45,5 @@
     height: 100vh;
   }
 }
+
 

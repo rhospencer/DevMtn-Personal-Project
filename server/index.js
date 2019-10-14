@@ -40,6 +40,7 @@ app.post('/api/new_plan', planCtrl.addNewPlan)
 app.delete(`/api/delete_plan/:plan_id`, planCtrl.deletePlan)
 app.put('/api/edit_plan_route/:plan_id/:day_route/:route_id', planCtrl.editPlanRoute)
 app.put('/api/edit_plan/:plan_id', planCtrl.editPlan)
+app.put('/api/edit_plan_route_to_null/:plan_id/:day_route', planCtrl.editPlanRouteToNull)
 
 // S3 ENDPOINTS
 app.get('/api/signs3', (req, res) => {

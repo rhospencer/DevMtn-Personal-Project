@@ -109,7 +109,6 @@ module.exports = {
         await db.edit_tu_route([plan_id, route_id])
         break
       case 'w_route':
-        console.log('its wednesday my dudes')
         await db.edit_w_route([plan_id, route_id])
         break
       case 'th_route':
@@ -175,6 +174,37 @@ module.exports = {
       week_focus
     ])
 
+    res.status(200).send({message: {text: 'Plan edited!', type: 'success'}})
+  },
+
+  async editPlanRouteToNull(req, res) {
+    const db = req.app.get('db')
+    const {plan_id, day_route} = req.params
+    switch (day_route) {
+      case 'm_route':
+        await db.edit_m_route_to_null(plan_id)
+        break
+      case 'tu_route':
+        await db.edit_tu_route_to_null(plan_id)
+        break
+      case 'w_route':
+        await db.edit_w_route_to_null(plan_id)
+        break
+      case 'th_route':
+        await db.edit_th_route_to_null(plan_id)
+        break
+      case 'f_route':
+        await db.edit_f_route_to_null(plan_id)
+        break
+      case 'sa_route':
+        await db.edit_sa_route_to_null(plan_id)
+        break
+      case 'su_route':
+        await db.edit_su_route_to_null(plan_id)
+        break
+      default:
+        res.status(200).send({message: {text: 'Choose day to edit.', type: 'error'}})
+    }
     res.status(200).send({message: {text: 'Plan edited!', type: 'success'}})
   }
 };

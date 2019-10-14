@@ -118,8 +118,8 @@ class Route extends Component {
         this.setState({[key]: e.target.value})
     }
 
-    goBack() {
-        this.props.history.push('/my_routes')
+    cancel() {
+        this.props.history.push(`/route/${this.props.match.params.route_id}`)
         this.setState({
             edit: false,
             route_img: 'http://via.placeholder.com/450x450',
@@ -133,6 +133,10 @@ class Route extends Component {
             isUploading: false,
             fileName: ''
         })
+    }
+
+    goBack() {
+        this.props.history.push('/my_routes')
     }
 
     render() {
@@ -150,7 +154,7 @@ class Route extends Component {
                                 <h3>Created By {this.state.route.username}</h3>
                             </div>
                             <div className="cancel-button-holder">
-                                <i class="fas fa-window-close fa-3x" onClick={() => this.goBack()}></i>
+                                <i class="fas fa-times fa-2x" onClick={() => this.goBack()}></i>
                             </div>
                         </div>
                         <div className="route-info-holder">
@@ -182,10 +186,14 @@ class Route extends Component {
                             <div className="edit-route-holder">
                                 <div className="add-form-button-holder">
                                     <div onClick={() => this.handleEditChange()} className="my-button-login">
-                                        Edit
+                                        <p>
+                                            Edit
+                                        </p>
                                     </div>
                                     <div onClick={() => this.deleteRoute()} className="my-button-login">
-                                        Delete
+                                        <p>
+                                            Delete
+                                        </p>
                                     </div>
                             </div>
                             </div>
@@ -312,11 +320,15 @@ class Route extends Component {
                                     {/* <button onClick={() => this.goBack()}>Return</button>
                                     <button onClick={() => this.editRoute()}>Submit Change</button> */}
                                     <div className="add-form-button-holder">
-                                        <div onClick={() => this.goBack()} className="my-button-login">
-                                            Cancel
+                                        <div onClick={() => this.cancel()} className="my-button-login">
+                                            <p>
+                                                Cancel
+                                            </p>
                                         </div>
                                         <div onClick={() => this.editRoute()} className="my-button-login">
-                                            Submit
+                                            <p>
+                                                Submit
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

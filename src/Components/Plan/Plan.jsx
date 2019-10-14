@@ -194,9 +194,9 @@ class Plan extends Component {
                         </div>
                         <div className="plan-total-miles-holder">
                             <h2>
-                                Total Miles: {+this.state.m_distance + +this.state.tu_distance + +this.state.w_distance + +this.state.th_distance + +this.state.f_distance + +this.state.sa_distance + +this.state.su_distance}
+                                Total Miles: &nbsp;{+this.state.m_distance + +this.state.tu_distance + +this.state.w_distance + +this.state.th_distance + +this.state.f_distance + +this.state.sa_distance + +this.state.su_distance}
                             </h2>
-                            <Link to={'/my_plans'}><i class="fas fa-window-close fa-2x"></i></Link>
+                            <Link to={'/my_plans'}><i class="fas fa-times"></i></Link>
                         </div>
                     </div>
                     <div className="plan-days-holder">
@@ -228,7 +228,9 @@ class Plan extends Component {
                             }
                             <div className="day-route-edit-button-holder">
                                 {this.state.mRouteInfo ?
-                                    <div className="my-button-change-route" onClick={() => this.editRoute('m_route')}>Change Route</div>
+                                    <div className="my-button-change-route" onClick={() => this.editRoute('m_route')}><p>
+                                        Change Route
+                                    </p></div>
                                     :
                                     null
                             }
@@ -263,7 +265,9 @@ class Plan extends Component {
                                 }
                                 <div className="day-route-edit-button-holder">
                                     {this.state.tuRouteInfo ? 
-                                        <div className="my-button-change-route" onClick={() => this.editRoute('tu_route')}>Change Route</div>
+                                        <div className="my-button-change-route" onClick={() => this.editRoute('tu_route')}><p>
+                                            Change Route
+                                        </p></div>
                                         :
                                         null
                                 }
@@ -298,7 +302,9 @@ class Plan extends Component {
                                 }
                                 <div className="day-route-edit-button-holder">
                                     {this.state.wRouteInfo ?
-                                        <div className="my-button-change-route" onClick={() => this.editRoute('w_route')}>Change Route</div>
+                                        <div className="my-button-change-route" onClick={() => this.editRoute('w_route')}><p>
+                                            Change Route
+                                        </p></div>
                                         :
                                         null
                                 }
@@ -333,7 +339,9 @@ class Plan extends Component {
                             }
                             <div className="day-route-edit-button-holder">
                                 {this.state.thRouteInfo ?
-                                    <div className="my-button-change-route" onClick={() => this.editRoute('th_route')}>Change Route</div>
+                                    <div className="my-button-change-route" onClick={() => this.editRoute('th_route')}><p>
+                                        Change Route
+                                    </p></div>
                                     :
                                     null
                             }
@@ -368,7 +376,9 @@ class Plan extends Component {
                             }
                             <div className="day-route-edit-button-holder">
                                 {this.state.fRouteInfo ?
-                                    <div className="my-button-change-route" onClick={() => this.editRoute('f_route')}>Change Route</div>
+                                    <div className="my-button-change-route" onClick={() => this.editRoute('f_route')}><p>
+                                        Change Route
+                                    </p></div>
                                     :
                                     null
                             }
@@ -403,7 +413,9 @@ class Plan extends Component {
                             }
                             <div className="day-route-edit-button-holder">
                                 {this.state.saRouteInfo ?
-                                    <div className="my-button-change-route" onClick={() => this.editRoute('sa_route')}>Change Route</div>
+                                    <div className="my-button-change-route" onClick={() => this.editRoute('sa_route')}><p>
+                                        Change Route
+                                    </p></div>
                                     :
                                     null
                             }
@@ -438,7 +450,9 @@ class Plan extends Component {
                             }
                             <div className="day-route-edit-button-holder">
                                 {this.state.suRouteInfo ?
-                                    <div className="my-button-change-route" onClick={() => this.editRoute('su_route')}>Change Route</div>
+                                    <div className="my-button-change-route" onClick={() => this.editRoute('su_route')}><p>
+                                        Change Route
+                                    </p></div>
                                     :
                                     null
                             }
@@ -453,8 +467,12 @@ class Plan extends Component {
                         {this.state.week_focus}
                     </div>
                     <div className="plan-buttons-holder">
-                        <div className="my-button-change-route" onClick={() => this.handleEditToggle()}>Edit</div>
-                        <div className="my-button-change-route" onClick={() => this.deletePlan()}>Delete</div>
+                        <div className="my-button-change-route" onClick={() => this.handleEditToggle()}><p>
+                            Edit
+                        </p></div>
+                        <div className="my-button-change-route" onClick={() => this.deletePlan()}><p>
+                            Delete
+                        </p></div>
                     </div>
                 
                 </div>
@@ -471,7 +489,7 @@ class Plan extends Component {
                     </div>
                     <div className="plan-total-miles-holder">
                         <h2>
-                            Total Miles: {+this.state.m_distance + +this.state.tu_distance + +this.state.w_distance + +this.state.th_distance + +this.state.f_distance + +this.state.sa_distance + +this.state.su_distance}
+                            Total Miles: &nbsp;{+this.state.m_distance + +this.state.tu_distance + +this.state.w_distance + +this.state.th_distance + +this.state.f_distance + +this.state.sa_distance + +this.state.su_distance}
                         </h2>
                     </div>
                 </div>
@@ -652,8 +670,12 @@ class Plan extends Component {
                     <textarea onChange={e => this.handleInputChange(e, 'week_focus')} cols="80" rows="2" value={this.state.week_focus}></textarea>
                 </div>
                 <div className="plan-buttons-holder">
-                    <div className="my-button-change-route" onClick={() => this.cancelEdit()}>Cancel</div>
-                    <div className="my-button-change-route" onClick={() => this.submitEdit()}>Submit</div>
+                    <div className="my-button-change-route" onClick={() => this.cancelEdit()}><p>
+                        Cancel
+                    </p></div>
+                    <div className="my-button-change-route" onClick={() => this.submitEdit()}><p>
+                        Submit
+                    </p></div>
                 </div>
             
             </div>

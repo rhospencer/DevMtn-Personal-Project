@@ -54,7 +54,17 @@ class SelectRoute extends Component {
         axios.put(`/api/edit_plan_route/${+this.props.match.params.plan_id}/${this.props.match.params.day_route}/${route_id}`).then(res => {
             this.props.history.push(`/plan/${+this.props.match.params.plan_id}`)
             Swal.fire({
-                text: res.data.message.text,
+                text: 'Route added to plan!',
+                type: res.data.message.type
+            })
+        })
+    }
+
+    noRoute() {
+        axios.put(`/api/edit_plan_route_to_null/${+this.props.match.params.plan_id}/${this.props.match.params.day_route}`).then(res => {
+            this.props.history.push(`/plan/${+this.props.match.params.plan_id}`)
+            Swal.fire({
+                text: 'Day has been set to have no route!!',
                 type: res.data.message.type
             })
         })
@@ -94,15 +104,22 @@ class SelectRoute extends Component {
                         </div>
                 {/* <button onClick={() => this.getPosts()}>Get Routes!</button> */}
                     <div onClick={() => this.getPosts()} className="my-button-get-routes">
-                            Get Routes
+                            <p>
+                                Get Routes
+                            </p>
                     </div>
                     <div onClick={() => this.resetSearch()} className="my-button-get-routes">
-                            Reset Search
+                            <p>
+                                Reset Search
+                            </p>
                     </div>
                 </div>
                 </div>
                 <div className="cancel-select-route-button">
-                    <div onClick={() => this.cancelButton()} className="my-button-get-routes">Cancel</div>
+                    <div onClick={() => this.cancelButton()} className="my-button-get-routes"><p>
+                        Cancel
+                    </p></div>
+                    <div onClick={() => this.noRoute()} className="my-button-get-routes"><p>No Route</p></div>
                 </div>
                 <div className="my-routes-holder">
                     {route}
