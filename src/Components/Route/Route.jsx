@@ -305,7 +305,10 @@ class Route extends Component {
                                             )}
                                         
                                     </Dropzone>
-                                    <input onChange={e => this.handleInputChange(e, "description")} placeholder="Description" value={this.state.description} type="text"/>
+                                    {/* <input onChange={e => this.handleInputChange(e, "description")} placeholder="Description" value={this.state.description} type="text"/> */}
+                                    <div className="description-textarea">
+                                        <textarea onChange={e => this.handleInputChange(e, "description")} placeholder="Description" value={this.state.description} cols="28" rows="4"></textarea>
+                                    </div>
                                     {/* <button onClick={() => this.goBack()}>Return</button>
                                     <button onClick={() => this.editRoute()}>Submit Change</button> */}
                                     <div className="add-form-button-holder">

@@ -3,19 +3,39 @@
 .hero {
     min-height: 60vh;
     min-width: $page-width;
-    background-image: url('../../assets/hero.jpg');
+    background-image: url('../../assets/optimized_hero.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-end;
+    align-items: flex-start;
     padding-left: 10rem;
-    padding-bottom: 1rem;
+    // padding-bottom: 1rem;
+    padding-top: 60px;
+}
+
+.route-runner-title {
+    height: 15vh;
+    width: 35vw;
+    // background: $tertiary-background;
+    padding-right: 0px;
+    h1 {
+        color: $secondary-background;
+        text-decoration: underline;
+        font-size: 3.5rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+        color: $secondary-color;
+        text-align: right;
+        
+    }
 }
 
 .register {
-    height: 45vh;
+    height: 35vh;
     width: 20vw;
     background: rgba(31, 40, 51, 0.753);
     @include flex-column-center;
@@ -25,6 +45,7 @@
     input {
         border: 2px solid $primary-color;
         border-radius: 4px;
+        width: 145px;
         background: $secondary-background;
         color: white;
         padding: 2px 8px;
@@ -65,6 +86,7 @@ div {
     cursor: pointer;
     &:focus {
         outline: none;
+        
     }
 }
 
@@ -132,7 +154,7 @@ section {
     align-items: center;
     width: 100%;
     height: 50%;
-    background: url('../../assets/findRoutes.jpg');
+    background: url('../../assets/optimized_findRoutes.jpg');
     opacity: 1.0;
     background-size: cover;
     background-repeat: no-repeat;
@@ -191,7 +213,7 @@ section {
     align-items: center;
     width: 100%;
     height: 50%;
-    background-image: url('../../assets/myRoutes.jpg');
+    background-image: url('../../assets/optimized_myRoutes.jpg');
     opacity: 1.0;
     background-size: cover;
     background-repeat: no-repeat;
@@ -225,7 +247,7 @@ section {
     align-items: center;
     width: 100%;
     height: 50%;
-    background-image: url('../../assets/myPlans.jpg');
+    background-image: url('../../assets/optimized_myPlans.jpg');
     opacity: 1.0;
     background-size: 500px;
     background-repeat: no-repeat;
@@ -275,7 +297,17 @@ section {
 }
 
 @media(min-width: 425px) and (max-width: 768px) {
-    
+    .hero {
+        padding-left: 60px;
+        padding-bottom: 10px;
+    }
+    .route-runner-title {
+        height: 15vh;
+        width: 40vw;
+        h1 {
+            font-size: 2.5rem;
+        }
+    }
 }
 
 @media(max-width: 425px) {
@@ -284,10 +316,22 @@ section {
     }
 
     .hero {
-        justify-content: center;
-        padding-left: 0rem;
+        // align-items: center;
+        justify-content: flex-start;;
+        padding-left: 20px;
         padding-bottom: 1rem;
         
+    }
+
+    .route-runner-title {
+        height: 15vh;
+        width: 60vw;
+        h1 {
+            font-size: 2.2rem;
+        }
+    h2 {
+        font-size: 1.2rem;
+    }
     }
 
     .register {
@@ -309,5 +353,26 @@ section {
     .img-box-my-plans {
         background-position-y: 80%;
         background-position-x: 80%;
+    }
+}
+
+@media(min-width: 1300px) {
+    .page-info-text-box {
+        h2 {
+            font-size: 3rem;
+        }
+        p {
+            font-size: 1.5rem;
+        }
+    }
+
+    .route-runner-title {
+        h1 {
+            font-size: 5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
     }
 }

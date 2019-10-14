@@ -111,6 +111,10 @@ class Home extends Component {
                 {!this.props.loggedIn ? <Login/> : null}
                 
                 <div className="hero">
+                    <div className="route-runner-title">
+                        <h1>The Route Runner</h1>
+                        <h2>Enhance Your Training</h2>
+                    </div>
                     {!this.props.loggedIn ? 
                         <div className="register">
                             <input onChange={e => this.handleChange(e, 'username')} value={this.state.username} placeholder='Username' type="text"/>
@@ -258,7 +262,7 @@ class Home extends Component {
                     </div>
                     <div className="info-box">
                         <div className="img-box-my-plans">
-                        <Link to={'/my-plans'}>
+                        <Link to={'/my_plans'}>
                                 <div className="myButton">
                                     <h4>Visit Page</h4>
                                 </div>

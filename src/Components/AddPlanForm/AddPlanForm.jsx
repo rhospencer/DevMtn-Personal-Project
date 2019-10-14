@@ -43,6 +43,16 @@ class AddPlanForm extends Component {
         }
     }
 
+    componentDidMount() {
+        if (!this.props.loggedIn) {
+            this.props.history.push('/')
+            Swal.fire({
+                text: 'Must be logged in to visit this page!',
+                type: 'warning'
+            })
+        }
+    }
+
 
     handleChange(e, key) {
         this.setState({[key]: e.target.value})

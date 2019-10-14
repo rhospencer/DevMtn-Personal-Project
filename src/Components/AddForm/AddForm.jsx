@@ -206,7 +206,10 @@ class AddForm extends Component {
                                     )}
                                 
                             </Dropzone>
-                            <input onChange={e => this.handleChange(e, 'description')} placeholder="Description" value={this.state.description} type="text"/>
+                            {/* <input onChange={e => this.handleChange(e, 'description')} placeholder="Description" value={this.state.description} type="text"/> */}
+                            <div className="description-textarea">
+                                <textarea onChange={e => this.handleChange(e, 'description')} placeholder="Description" value={this.state.description} cols="28" rows="4"></textarea>
+                            </div>
                             <div className="add-form-button-holder">
                                 <div onClick={this.clearInputs} className="my-button-login">
                                     Cancel

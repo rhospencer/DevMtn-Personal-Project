@@ -45,6 +45,7 @@
         border: 2px solid $primary-color;
         border-radius: 4px;
         background: $secondary-background;
+        width: 145px;
         color: white;
         padding: 2px 8px;
         transition: padding .15s ease-in, border .15s ease-in;
@@ -166,6 +167,22 @@
     p {
         padding: 0 20px;
         text-align: center;
+    }
+}
+
+.description-textarea {
+    textarea {
+        text-align: center;
+        border: 2px solid $primary-color;
+        border-radius: 4px;
+        background: $secondary-background;
+        transition: padding .15s ease-in, border .15s ease-in;
+        color: white;
+        &:focus {
+            padding: 4px 10px;
+            outline: none;
+            border: 2px solid $secondary-color;
+        } 
     }
 }
 

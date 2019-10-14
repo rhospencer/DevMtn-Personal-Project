@@ -45,7 +45,12 @@ class MyPlans extends Component {
                     Total Miles: {+el.m_distance + +el.tu_distance + +el.w_distance + +el.th_distance + +el.f_distance + +el.sa_distance + +el.su_distance}
                 </div>
                 <div className="my-plan-description-holder">
-                    Weekly Description: {el.week_focus}
+                    <h4>
+                        Weekly Description:
+                    </h4>
+                    <p>
+                        {el.week_focus}
+                    </p>
                 </div>
                 <div className="my-plan-button-holder">
                     <Link to={`/plan/${el.plan_id}`}>

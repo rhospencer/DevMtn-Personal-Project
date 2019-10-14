@@ -412,3 +412,20 @@
         height: 5%;
     }
 }
+
+@media(min-width: 1300px) {
+    .plan-day-info-holder {
+        p {
+            font-size: 1.5rem;
+        }
+    }
+
+    .day-route-info-holder {
+        h1 {
+            font-size: 1rem;
+        }
+        h4 {
+            font-size: .8rem;
+        }
+    }
+}

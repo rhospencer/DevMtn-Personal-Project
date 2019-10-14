@@ -56,7 +56,15 @@ class Plan extends Component {
     }
 
     componentDidMount() {
-        this.getPlan()
+        if (!this.props.loggedIn) {
+            this.props.history.push('/')
+            Swal.fire({
+                text: 'Must be logged in to visit this page!',
+                type: 'warning'
+            })
+        } else {
+            this.getPlan()
+        }
     }
 
     getPlan() {

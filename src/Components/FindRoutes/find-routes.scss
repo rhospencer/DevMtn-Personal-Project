@@ -15,7 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: 100vh;
     width: $page-width;
     background: $secondary-background;
     border-bottom: .5rem solid $primary-color;
@@ -230,6 +230,10 @@
     .route {
         height: 300px;
         width: 300px;
+        img {
+            width: 80%;
+            height: auto;
+        }
     }
 
     .display-route {
@@ -271,4 +275,13 @@
     }
 
     
+}
+
+@media(min-width: 1300px) {
+    .search {
+        input[type=text] {
+            height: 20px;
+            width: 150px;
+        }
+    }
 }

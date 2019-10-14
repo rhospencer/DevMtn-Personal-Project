@@ -171,3 +171,10 @@ a {
         text-align: center;
     }
 }
+
+@media(min-width: 1300px) {
+    .my-routes-page {
+        min-height: 100vh;
+        justify-content: flex-start;
+    }
+}

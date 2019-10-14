@@ -8,12 +8,17 @@
 @import "./Components/Plan/plan.scss";
 @import "./Components//MyPlans/my-plans.scss";
 @import "./Components/AddPlanForm/add-plan-form.scss";
+@import url('https://fonts.googleapis.com/css?family=Cantarell:400i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Allan&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:300i&display=swap');
 
 * {
   margin: 0;
   box-sizing: border-box;
   max-width: 100%;
   overflow-x: hidden;
+  font-family: 'Lato', sans-serif;
 }
 
 .App {
