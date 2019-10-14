@@ -3,6 +3,7 @@ const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
 const aws = require('aws-sdk')
+const path = require('path')
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY} = process.env
 const authCtrl = require('./controllers/authController')
 const routeCtrl = require('./controllers/routeController')
@@ -16,6 +17,7 @@ app.use(session({
     saveUninitialized: false,
     secret: SESSION_SECRET
 }))
+app.use( express.static( `${__dirname}/../build` ) )
 
 // AUTH ENDPOINTS
 app.post('/auth/register', authCtrl.register)
@@ -68,6 +70,12 @@ app.get('/api/signs3', (req, res) => {
         }
         return res.send(returnData)
     })
+})
+
+// HOSTING
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
 })
 
 
