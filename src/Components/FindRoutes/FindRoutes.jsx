@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import './find-routes.scss'
 import ExpandRoute from '../ExpandRoute/ExpandRoute'
 
+
 class FindRoutes extends Component {
     constructor() {
         super()
@@ -14,6 +15,7 @@ class FindRoutes extends Component {
             city: '',
             distance: '',
             routes: [],
+            loading: false
         }
     }
 

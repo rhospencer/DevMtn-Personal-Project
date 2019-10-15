@@ -21,6 +21,25 @@
   font-family: 'Lato', sans-serif;
 }
 
+*::-webkit-scrollbar {
+  width: 10px;
+  background: $secondary-background;
+  // border-radius: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: $secondary-background;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  @include gradient-background;
+  border-radius: 10px;
+  &:hover {
+    background: $primary-color;
+  }
+}
+
 .App {
   display: flex;
 }
